@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+ Authors: Georgios Migdos
+ Copyright (C) 2009 Georgios Migdos <cyberpython@gmail.com>
+
+-->
+<language id="glossa" _name="Glossa" version="2.0" _section="Sources">
+    <metadata>
+      <property name="mimetypes">text/x-glossa</property>
+      <property name="globs">*.glossa;*.gls</property>
+      <property name="line-comment-start">!</property>      
+    </metadata>
+
+    <styles>
+        <style id="comment"           _name="Comment"               map-to="def:comment"/>
+        <style id="string"            _name="String"                map-to="def:string"/>
+        <style id="floating-point"    _name="Floating point number" map-to="def:floating-point"/>
+        <style id="decimal"           _name="Decimal number"        map-to="def:decimal"/>
+        <style id="keyword"           _name="Keyword"               map-to="def:keyword"/>
+        <style id="type"              _name="Data Type"             map-to="def:type"/>
+        <style id="boolean"           _name="Boolean value"         map-to="def:boolean"/>
+<!--        <style id="symbol"            _name="Symbol"                map-to="def:symbol"/> -->
+        <style id="operator"          _name="Operator"              map-to="def:operator"/>
+<!--        <style id="identifier"        _name="identifier"            map-to="def:identifier"/> -->
+    </styles>
+ 
+    <default-regex-options case-sensitive="false"/>
+	
+    <definitions>        
+
+        <context id="glossa">
+            <include>
+
+                <!-- Comments -->
+                <context id="comment" style-ref="comment" end-at-line-end="true">
+                    <start>!</start>                    
+                </context>     
+
+                <context id="string" style-ref="string" end-at-line-end="true">
+                    <start>L?'</start>
+                    <end>'</end>                    
+                </context>
+
+                <context id="float" style-ref="floating-point">
+                    <match extended="true">
+                        (?&lt;![0-9a-zA-Zα-ωΑ-ΩάέήίύόώΆΈΉΊΎΌΏϊϋΪΫΐΰςΣ_\.])
+                        ((\.[0-9]+ | [0-9]+\.[0-9]*) ([Ee][+-]?[0-9]*)? |
+                         ([0-9]+[Ee][+-]?[0-9]*))
+                        [fFlL]?
+                        (?![0-9a-zA-Zα-ωΑ-ΩάέήίύόώΆΈΉΊΎΌΏϊϋΪΫΐΰςΣ_\.])
+                    </match>
+                </context>
+
+                <context id="decimal" style-ref="decimal">
+                    <match extended="true">
+                        (?&lt;![0-9a-zA-Zα-ωΑ-ΩάέήίύόώΆΈΉΊΎΌΏϊϋΪΫΐΰςΣ_\.])
+                        [0-9]+[uUlL]*
+                        (?![0-9a-zA-Zα-ωΑ-ΩάέήίύόώΆΈΉΊΎΌΏϊϋΪΫΐΰςΣ_\.])
+                    </match>
+                </context>
+
+                <!-- Keywords -->
+                <context id="keywords" style-ref="keyword">
+                    <match extended="true">
+                        (?&lt;![0-9a-zA-Zα-ωΑ-ΩάέήίύόώΆΈΉΊΎΌΏϊϋΪΫΐΰςΣ_])
+                        ([Ήή] | 
+                         [Κκ][Αα][Ιι] | 
+                         [ΟοΌό][Χχ][Ιι] | 
+                         [Ππ][Ρρ][ΟοΌό][Γγ][Ρρ][Αα][Μμ][Μμ][Αα] | 
+                         [Σσ][Ττ][Αα][Θθ][Εε][Ρρ][ΕεΈέ][ΣΣς] | 
+                         [Μμ][Εε][Ττ][Αα][Ββ][Λλ][Ηη][Ττ][ΕεΈέ][ΣΣς] | 
+                         [Αα][Ρρ][Χχ][ΗηΉή] | 
+                         [Γγ][Ρρ][ΑαΆά][Ψψ][Εε] | 
+                         [Δδ][Ιι][ΑαΆά][Ββ][Αα][Σσ][Εε] | 
+                         [Αα][Νν] | 
+                         [Ττ][ΟοΌό][Ττ][Εε] | 
+                         [Αα][Λλ][Λλ][Ιι][ΩωΏώ][ΣΣς] | 
+                         [Αα][Λλ][Λλ][Ιι][ΩωΏώ][ΣΣς]_[Αα][Νν] | 
+                         [Ττ][ΕεΈέ][Λλ][Οο][ΣΣς]_[Αα][Νν] | 
+                         [Εε][Ππ][ΙιΊί][Λλ][Εε][Ξξ][Εε] | 
+                         [Ππ][Εε][Ρρ][ΙιΊί][Ππ][Ττ][Ωω][Σσ][Ηη] | 
+                         [Ττ][ΕεΈέ][Λλ][Οο][ΣΣς]_[Εε][Ππ][Ιι][Λλ][Οο][Γγ][ΩωΏώ][Νν] | 
+                         [Γγ][Ιι][Αα] | 
+                         [Αα][Ππ][ΟοΌό] | 
+                         [Μμ][ΕεΈέ][Χχ][Ρρ][Ιι] | 
+                         [Μμ][Εε].[Ββ][ΗηΉή][Μμ][Αα] | 
+                         [Ττ][ΕεΈέ][Λλ][Οο][ΣΣς]_[Εε][Ππ][Αα][Νν][ΑαΆά][Λλ][Ηη][Ψψ][Ηη][ΣΣς] | 
+                         [ΟοΌό][Σσ][Οο] | 
+                         [Εε][Ππ][Αα][Νν][ΑαΆά][Λλ][Αα][Ββ][Εε] | 
+                         [Αα][Ρρ][Χχ][ΗηΉή]_[Εε][Ππ][Αα][Νν][ΑαΆά][Λλ][Ηη][Ψψ][Ηη][ΣΣς] | 
+                         [Μμ][ΕεΈέ][Χχ][Ρρ][Ιι][ΣΣς]_[ΟοΌό][Ττ][Οο][Υυ] | 
+                         [Κκ][ΑαΆά][Λλ][Εε][Σσ][Εε] | 
+                         [Ττ][ΕεΈέ][Λλ][Οο][ΣΣς]_[Ππ][Ρρ][Οο][Γγ][Ρρ][ΑαΆά][Μμ][Μμ][Αα][Ττ][Οο][ΣΣς] | 
+                         [Δδ][Ιι][Αα][Δδ][Ιι][Κκ][Αα][Σσ][ΙιΊί][Αα] | 
+                         [Ττ][ΕεΈέ][Λλ][Οο][ΣΣς]_[Δδ][Ιι][Αα][Δδ][Ιι][Κκ][Αα][Σσ][ΙιΊί][Αα][ΣΣς] | 
+                         [Σσ][Υυ][Νν][ΑαΆά][Ρρ][Ττ][Ηη][Σσ][Ηη] | 
+                         [Ττ][ΕεΈέ][Λλ][Οο][ΣΣς]_[Σσ][Υυ][Νν][ΑαΆά][Ρρ][Ττ][Ηη][Σσ][Ηη][ΣΣς])
+                        (?![0-9a-zA-Zα-ωΑ-ΩάέήίύόώΆΈΉΊΎΌΏϊϋΪΫΐΰςΣ_])
+                    </match>                                     
+                </context>
+
+                <context id="types" style-ref="type">
+		    <match extended="true">
+                        (?&lt;![0-9a-zA-Zα-ωΑ-ΩάέήίύόώΆΈΉΊΎΌΏϊϋΪΫΐΰςΣ_])
+                    	([Αα][Κκ][ΕεΈέ][Ρρ][Αα][Ιι][Εε][ΣΣς] | 
+                    	 [Ππ][Ρρ][Αα][Γγ][Μμ][Αα][Ττ][Ιι][Κκ][ΕεΈέ][ΣΣς] | 
+                    	 [Χχ][Αα][Ρρ][Αα][Κκ][Ττ][ΗηΉή][Ρρ][Εε][ΣΣς] | 
+                    	 [Λλ][Οο][Γγ][Ιι][Κκ][ΕεΈέ][ΣΣς] | 
+                    	 [Αα][Κκ][ΕεΈέ][Ρρ][Αα][Ιι][Αα] | 
+                    	 [Ππ][Ρρ][Αα][Γγ][Μμ][Αα][Ττ][Ιι][Κκ][ΗηΉή] | 
+                    	 [Χχ][Αα][Ρρ][Αα][Κκ][Ττ][ΗηΉή][Ρρ][Αα][ΣΣς] | 
+                    	 [Λλ][Οο][Γγ][Ιι][Κκ][ΗηΉή])
+                    	(?![0-9a-zA-Zα-ωΑ-ΩάέήίύόώΆΈΉΊΎΌΏϊϋΪΫΐΰςΣ_])
+                    </match>
+                </context>
+
+                <context id="boolean" style-ref="boolean">
+                   <match extended="true">
+                        (?&lt;![0-9a-zA-Zα-ωΑ-ΩάέήίύόώΆΈΉΊΎΌΏϊϋΪΫΐΰςΣ_])
+                    	([Αα][Λλ][Ηη][Θθ][ΗηΉή][ΣΣς] | 
+			 [Ψψ][Εε][Υυ][Δδ][ΗηΉή][ΣΣς])
+                    	(?![0-9a-zA-Zα-ωΑ-ΩάέήίύόώΆΈΉΊΎΌΏϊϋΪΫΐΰςΣ_])
+                    </match>
+                </context>
+                
+                <context id="operator" style-ref="operator">
+                    <match extended="true">
+                        (?&lt;![0-9a-zA-Zα-ωΑ-ΩάέήίύόώΆΈΉΊΎΌΏϊϋΪΫΐΰςΣ_])
+                    	([Dd][Ii][Vv] | 
+                         [Mm][Oo][Dd] |
+                         &lt;- )
+                    	(?![0-9a-zA-Zα-ωΑ-ΩάέήίύόώΆΈΉΊΎΌΏϊϋΪΫΐΰςΣ_]) |
+                    	(\+ |
+                         \- |
+                         \* |
+                         \/ )
+                    </match>                                 
+                </context>
+                
+                 <!--<context id="identifier" style-ref="identifier">
+                    <match extended="true">
+                        (?&lt;![0-9a-zA-Zα-ωΑ-ΩάέήίύόώΆΈΉΊΎΌΏϊϋΪΫΐΰςΣ_])
+                    	([a-zA-Zα-ωΑ-ΩάέήίύόώΆΈΉΊΎΌΏϊϋΪΫΐΰςΣ]
+                    	([0-9a-zA-Zα-ωΑ-ΩάέήίύόώΆΈΉΊΎΌΏϊϋΪΫΐΰςΣ_])*
+                    	)
+                    	(?![0-9a-zA-Zα-ωΑ-ΩάέήίύόώΆΈΉΊΎΌΏϊϋΪΫΐΰςΣ_])
+                    </match>
+                </context>-->
+
+            </include>
+        </context>
+    </definitions>
+</language>

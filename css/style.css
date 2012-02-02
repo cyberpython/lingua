@@ -1,0 +1,106 @@
+@import url('../fonts/sans/stylesheet.css');
+@import url('../fonts/serif/stylesheet.css');
+
+body{
+    padding: 0;
+    margin: 0;
+    font-family: "LiberationSans", sans-serif;
+    font-size: 14px;
+    color: #333;
+    min-width: 340px;
+}
+
+.center{
+    padding: 0 20px 0 20px;
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+h1, h2, h3, h4, h5, h6{
+    font-weight: normal;
+}
+
+p{
+    margin-bottom: 40px;
+}
+
+li{
+   margin: 20px 0; 
+}
+
+a{
+    text-decoration: none;
+    color: #2B599D;
+}
+
+a:hover{
+    color: #333;
+}
+
+header{
+    background-color: #87AADE;
+    background-image: url('../img/sky.png');
+    background-position: center bottom;
+    background-repeat: no-repeat;
+}
+
+.header-content{
+    position: relative;
+    color: #2B599D;
+    background-color: #fff;
+    background-image: url('../img/header_bg.png');
+    background-position: center bottom;
+    background-repeat: repeat-x;
+    min-height: 150px;
+    box-shadow: 0 2px 25px #333;
+}
+
+header h1{
+    font-family: "LiberationSerif", serif;
+    font-size: 400%;
+    font-style: italic;
+    margin: 0;
+    padding: 30px 0 0 0;
+}
+
+header h2{
+    font-size: 120%;
+    margin: 0;
+    margin: 0 0 0 100px;
+}
+
+nav{
+    overflow: hidden;
+}
+
+nav ul{
+    font-size: 90%;
+    list-style-type: none;
+    float: right;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+nav ul li{
+    display: inline;
+    margin: 0 0 0 20px;
+}
+
+.sky{
+    width: 100%;
+    height: 300px;
+}
+
+.content{
+    border-top: 1px solid #777;
+}
+
+footer{
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+}
+
+footer p{
+    text-align: center;
+}

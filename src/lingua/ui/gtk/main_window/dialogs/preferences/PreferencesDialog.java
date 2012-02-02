@@ -27,11 +27,13 @@ import lingua.preferences.Preferences;
 import lingua.resources.StringResources;
 import lingua.ui.gtk.main_window.MainWindow;
 import org.gnome.gtk.Align;
+import org.gnome.gtk.Box;
 import org.gnome.gtk.Button;
 import org.gnome.gtk.Dialog;
 import org.gnome.gtk.FontButton;
 import org.gnome.gtk.Grid;
 import org.gnome.gtk.Label;
+import org.gnome.gtk.Orientation;
 import org.gnome.gtk.ResponseType;
 import org.gnome.gtk.Stock;
 
@@ -44,6 +46,8 @@ public class PreferencesDialog extends Dialog {
     private Grid grid;
     private FontButton fontButton;
     private SchemesCombo schemesCombo;
+
+
     private static PreferencesDialog instance = null;
 
     public static PreferencesDialog getInstance() {
@@ -75,14 +79,12 @@ public class PreferencesDialog extends Dialog {
 
         grid = new Grid();
         grid.setColumnSpacing(10);
+        grid.setRowSpacing(10);
 
-        Label lb1 = new Label(strRes.getString("font"));
+        Label lb1 = new Label("<b>"+strRes.getString("font")+"</b>");
+        lb1.setUseMarkup(true);
         lb1.setAlignHorizontal(Align.START);
         grid.attach(lb1, 0, 0, 2, 1);
-
-        lb1 = new Label(strRes.getString("editor_scheme"));
-        lb1.setAlignHorizontal(Align.START);
-        grid.attach(lb1, 2, 0, 2, 1);
 
         fontButton = new FontButton();
         fontButton.setExpandHorizontal(true);
@@ -103,15 +105,22 @@ public class PreferencesDialog extends Dialog {
         });
         grid.attach(fontButton, 1, 1, 1, 1);
 
+        lb1 = new Label("<b>"+strRes.getString("editor_scheme")+"</b>");
+        lb1.setUseMarkup(true);
+        lb1.setAlignHorizontal(Align.START);
+        grid.attach(lb1, 0, 2, 2, 1);
+
         schemesCombo = new SchemesCombo();
         schemesCombo.setExpandHorizontal(true);
-        grid.attach(schemesCombo, 3, 1, 1, 1);
+        grid.attach(schemesCombo, 1, 3, 1, 1);
 
-        this.add(grid);
+        Box container = new Box(Orientation.HORIZONTAL, 0);
+        container.packStart(grid, true, true, 10);
+        this.add(container);
 
         this.setValues();
 
-        this.setDefaultSize(500, 400);
+        this.setDefaultSize(300, 200);
 
         this.showAll();
     }

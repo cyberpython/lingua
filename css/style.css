@@ -7,10 +7,10 @@ body{
     font-family: "LiberationSans", sans-serif;
     font-size: 14px;
     color: #333;
-    min-width: 340px;
+    min-width:  300px;
 }
 
-.center{
+.center, section{
     padding: 0 20px 0 20px;
     max-width: 760px;
     margin: 0 auto;
@@ -22,6 +22,7 @@ h1, h2, h3, h4, h5, h6{
 
 p{
     margin-bottom: 40px;
+    margin-left: 20px;
 }
 
 li{
@@ -46,7 +47,7 @@ header{
 
 .header-content{
     position: relative;
-    color: #2B599D;
+    /*color: #2B599D;*/
     background-color: #fff;
     background-image: url('../img/header_bg.png');
     background-position: center bottom;
@@ -61,6 +62,7 @@ header h1{
     font-style: italic;
     margin: 0;
     padding: 30px 0 0 0;
+    text-shadow: 1px 1px 1px #aaa;
 }
 
 header h2{
@@ -82,8 +84,8 @@ nav ul{
 }
 
 nav ul li{
-    display: inline;
-    margin: 0 0 0 20px;
+    display: inline-block;
+    margin: 20px 0 0 20px;
 }
 
 .sky{
@@ -92,7 +94,13 @@ nav ul li{
 }
 
 .content{
-    border-top: 1px solid #777;
+    border-top: 1px solid #999;
+    background-color: #fff;
+    background-image: url('../img/content_bg.png');
+    background-position: center top;
+    background-repeat: repeat-x;
+    padding-top: 50px;
+    padding-bottom: 200px;
 }
 
 footer{
@@ -101,6 +109,16 @@ footer{
     padding: 10px;
 }
 
-footer p{
+footer>p{
     text-align: center;
+}
+
+#features-list{
+    overflow: hidden;
+}
+
+#features-list li{
+    width:  200px;
+    float: left;
+    margin: 10px 20px;
 }

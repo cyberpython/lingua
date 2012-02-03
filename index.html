@@ -37,6 +37,9 @@
                 
                 <p>Η Lingua είναι μία εφαρμογή για το 
                 <a target="_blank" href="http://gnome.gr/">περιβάλλον εργασίας Gnome</a> που επιτρέπει τη γρήγορη και εύκολη συγγραφή και εκτέλεση προγραμμάτων στη <a target="_blank" href="http://digitalschool.minedu.gov.gr/modules/ebook/show.php/DSGL-C101/36/198,1065/">ΓΛΩΣΣΑ</a>, τη γλώσσα προγραμματισμού που διδάσκεται στους μαθητές της Γ' λυκείου.</p>
+            </section>
+            
+            <section>
                 <h2>Χαρακτηριστικά</h2>
                 <ul id="features-list">
                     <li>
@@ -68,6 +71,29 @@
                 <h2>Κώδικας</h2>
                 
                 <p>Όλος ο κώδικας είναι διαθέσιμος υπό την <a target="_blank" href="http://www.opensource.org/licenses/mit-license.php">άδεια MIT</a> στο <a target="_blank" href="http://github.com/cyberpython/lingua">Github</a>.</p>
+                
+                <p>Για τη μεταγλώττιση του κώδικα χρειάζονται οι εξής βιβλιοθήκες και εφαρμογές:</p>
+                <ul>
+                    <li><p>Git</p></li>
+                    <li><p>Ant</p></li>
+                    <li><p>GLib <code>&ge; 2.28.0</code> </p></li>
+                    <li><p>GTK <code>&ge; 3.0.4</code> </p></li>
+                    <li><p>Cairo <code>&ge; 1.10.0</code></p></li>
+                    <li><p>Pango <code>&ge; 1.28.0</code></p></li>
+                    <li><p>gtksourceview <code>&ge; 2.91.9</code></p></li>
+                    <li><p>libnotify <code>&ge; 0.7.0</code></p></li>
+                    <li><p>libunique <code>&ge; 3.0</code></p></li>
+                    <li><p>Enchant <code>&ge; 1.4.2</code></p></li>
+                    <li><p>librsvg <code>&ge; 2.32.0</code></p></li>
+                </ul>
+                
+                <p>Και εκτελούμε τις παρακάτω εντολές σε ένα τερματικό:</p>
+                <pre>cd ~
+git clone git://github.com/cyberpython/lingua.git
+cd lingua
+./build-all</pre>
+                
+                <p>Στο τέλος, τα binaries θα βρίσκονται στον κατάλογο <code>~/lingua/dist</code> .</p>
             </section>
         </div>
         

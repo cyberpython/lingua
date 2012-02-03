@@ -20,8 +20,11 @@ h1, h2, h3, h4, h5, h6{
     font-weight: normal;
 }
 
-p{
+section{
     margin-bottom: 40px;
+}
+
+section>p, section pre, section>ul{
     margin-left: 60px;
 }
 
@@ -40,6 +43,19 @@ a{
 
 a:hover{
     color: #333;
+}
+
+pre{
+    border: 1px dashed #fff;
+    padding: 10px;
+    background-color: #000;
+    color: #fff;
+    line-height: 25px;
+}
+
+code{
+    background-color: #ddd;
+    padding: 2px;
 }
 
 header{
@@ -119,6 +135,7 @@ footer>p{
 
 #features-list{
     overflow: hidden;
+    margin: 0;
 }
 
 #features-list li{

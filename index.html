@@ -104,15 +104,18 @@
             
             <section>
                 <h2 id="installation">Εγκατάσταση</h2>
-                <p>Αποσυμπιέστε το αρχείο <code>lingua.zip</code> και κάντε διπλό κλικ στο αρχείο με το εικονίδιο: <img id="lingua-icon" alt="" src="img/lingua-icon.png" /> ή εκτελέστε σε τερματικό την εντολή:</p>
+                <p>Αποσυμπιέστε το αρχείο <code>lingua.zip</code> και κάντε διπλό κλικ στο αρχείο <code>INSTALL</code>. Θα εμφανιστεί ένα αρχείο με το όνομα <code>Lingua</code> και με το εικονίδιο: <img id="lingua-icon" alt="" src="img/lingua-icon.png" /> Κάντε διπλό κλικ σε αυτό το αρχείο για να τρέξετε την εφαρμογή ή δώστε σε ένα τερματικό:</p>
                 <pre>cd <em>κατάλογος_όπου_αποσυμπιέσατε_το_lingua.zip</em>
-./run-lingua</pre>
+java -jar lingua.jar</pre>
             </section>
             
             <section>
                 <h2 id="code">Κώδικας</h2>
                 
                 <p>Όλος ο κώδικας είναι διαθέσιμος υπό την <a target="_blank" href="http://www.opensource.org/licenses/mit-license.php">άδεια MIT</a> στο <a target="_blank" href="http://github.com/cyberpython/lingua">Github</a>.</p>
+                
+                
+                <p>Χρησιμοποιούνται: <a href="java-gnome.sourceforge.net">java-gnome (τροποποιημένη GPL)</a>, <a href="http://pholser.github.com/jopt-simple/">JOpt Simple (άδεια MIT)</a>, <a href="http://www.antlr.org/">Antlr3.2 (άδεια BSD)</a> και <a href="https://github.com/cyberpython/glossa-interpreter">glossa-interpreter (άδεια MIT)</a>.</p>
                 
                 <p>Η εφαρμογή είναι εξ&#39; ολοκλήρου γραμμένη σε Java.<p>
                 
@@ -132,13 +135,16 @@
                     <li><p>librsvg <code>&ge; 2.32.0</code></p></li>
                 </ul>
                 
-                <p>Και εκτελούμε τις παρακάτω εντολές σε ένα τερματικό (εκτός από την παραγωγή του εκτελέσιμου αρχείου και των απαραίτητων βιβλιοθηκών, θα γίνει εγκατάσταση / επανεγγραφή των αρχείων <code>~/.local/share/gtksourceview-3.0/language-specs/glossa.lang</code> και <code>~/.local/share/gtksourceview-3.0/styles/glossa.xml</code>):</p>
+                <p>Και εκτελούμε τις παρακάτω εντολές σε ένα τερματικό:</p>
                 <pre>cd ~
 git clone git://github.com/cyberpython/lingua.git
 cd lingua
-./build-all</pre>
+./build-all
+</pre>
                 
-                <p>Στο τέλος, το εκτελέσιμο αρχείο lingua.jar θα βρίσκεται στον κατάλογο <code>~/lingua/dist</code> .</p>
+                <p>Στο τέλος, το εκτελέσιμο αρχείο <code>lingua.jar</code> θα βρίσκεται στον κατάλογο <code>~/lingua/dist</code> .</p>
+                
+                <p><strong>Προσοχή :</strong> Για να εγκατασταθούν τα απαραίτητα αρχεία του GtkSourceview για τη χρωματική επισήμανση του κώδικα πρέπει να εκτελεστεί τουλάχιστον μία φορά το dist/INSTALL script</p>
             </section>
         </div>
         

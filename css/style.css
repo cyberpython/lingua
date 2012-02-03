@@ -60,8 +60,8 @@ pre{
 }
 
 code{
-    background-color: #ddd;
     padding: 2px;
+    font-style: italic;
 }
 
 header{

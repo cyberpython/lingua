@@ -37,7 +37,7 @@ Lingua στα Λατινικά σημαίνει «γλώσσα». Πρόκειτ
 
 Όλος ο κώδικας είναι διαθέσιμος υπό την [άδεια MIT](http://www.opensource.org/licenses/mit-license.php) στο [Github](http://github.com/cyberpython/lingua).
 
-Χρησιμοποιούνται: [java-gnome (τροποποιημένη GPL)](java-gnome.sourceforge.net), [JOpt Simple (άδεια MIT)](http://pholser.github.com/jopt-simple/), [Antlr3.2 (άδεια BSD)] και [glossa-interpreter (άδεια MIT)](https://github.com/cyberpython/glossa-interpreter).
+Χρησιμοποιούνται: [java-gnome (τροποποιημένη GPL)](java-gnome.sourceforge.net), [JOpt Simple (άδεια MIT)](http://pholser.github.com/jopt-simple/), [Antlr3.2 (άδεια BSD)](http://www.antlr.org/) και [glossa-interpreter (άδεια MIT)](https://github.com/cyberpython/glossa-interpreter).
 
 Η εφαρμογή είναι εξ' ολοκλήρου γραμμένη σε Java.
 
@@ -67,7 +67,7 @@ Lingua στα Λατινικά σημαίνει «γλώσσα». Πρόκειτ
 
 * librsvg ≥ 2.32.0
 
-Εκτελούμε τις παρακάτω εντολές σε ένα τερματικό (εκτός από την παραγωγή του εκτελέσιμου αρχείου και των απαραίτητων βιβλιοθηκών, θα γίνει εγκατάσταση των αρχείων `~/.local/share/gtksourceview-3.0/language-specs/glossa.lang` και `~/.local/share/gtksourceview-3.0/styles/glossa.xml`):
+Εκτελούμε τις παρακάτω εντολές σε ένα τερματικό:
 
     cd ~
     git clone git://github.com/cyberpython/lingua.git
@@ -75,3 +75,5 @@ Lingua στα Λατινικά σημαίνει «γλώσσα». Πρόκειτ
     ./build-all
 
 Στο τέλος, το εκτελέσιμο αρχείο `lingua.jar` θα βρίσκεται στον κατάλογο `~/lingua/dist` .
+
+__Προσοχή :__ Για να εγκατασταθούν τα απαραίτητα αρχεία του GtkSourceview για τη χρωματική επισήμανση του κώδικα πρέπει να εκτελεστεί τουλάχιστον μία φορά το `dist/INSTALL` script

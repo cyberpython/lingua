@@ -2,8 +2,30 @@
 <html>
     <head>
         <meta charset="utf-8">
+        
+        <script type="text/javascript" src="js/jquery-1.4.3.min.js"></script>
+	    <script type="text/javascript" src="js/fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
+	    <script type="text/javascript" src="js/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+	    <script type="text/javascript" src="js/fancybox/jquery.easing-1.3.pack.js"></script>
+	
+	    <link rel="stylesheet" type="text/css" href="js/fancybox/jquery.fancybox-1.3.4.css" media="screen" />
         <link rel="stylesheet" type="text/css" href="css/style.css" />
+        
         <title>Lingua - Περιβάλλον Ανάπτυξης Για Τη ΓΛΩΣΣΑ</title>
+        
+        <script type="text/javascript">
+		$(document).ready(function() {
+			$("a.screenshot").fancybox({
+		        'transitionIn'	:	'elastic',
+		        'transitionOut'	:	'elastic',
+		        'speedIn'		:	600, 
+		        'speedOut'		:	200, 
+		        'overlayShow'	:	false
+	        });
+		});
+	</script>
+        
+        
     </head>
     
     <body>
@@ -53,12 +75,21 @@
                     <li>
                         Δυνατότητα εξαγωγής του κώδικα ως αρχείο <a target="_blank" href="http://el.wikipedia.org/wiki/HTML">HTML</a>.
                     </li>
+                    <li>
+                        Δυνατότητα χρήσης <em>αρχείου εισόδου</em> ώστε να μην πληκτρολογούνται συνεχώς οι ίδιες τιμές κατά την εκτέλεση των προγραμμάτων.
+                    </li>
                 </ul>
                 
             </section>
             
             <section>
                 <h2>Εικόνες λειτουργίας</h2>
+                <p>
+                    <a class="screenshot" rel="gallery1" href="screenshots/screenshot1.jpg"><img src="screenshots/screenshot1_thumb.jpg" alt=""/></a>
+                    <a class="screenshot" rel="gallery1" href="screenshots/screenshot2.jpg"><img src="screenshots/screenshot2_thumb.jpg" alt=""/></a>
+                    <a class="screenshot" rel="gallery1" href="screenshots/screenshot3.jpg"><img src="screenshots/screenshot3_thumb.jpg" alt=""/></a>
+                    <a class="screenshot" rel="gallery1" href="screenshots/screenshot4.jpg"><img src="screenshots/screenshot4_thumb.jpg" alt=""/></a>
+                </p>
             </section>
             
             <section>

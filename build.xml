@@ -12,7 +12,19 @@
     <import file="nbproject/build-impl.xml"/>
     
     <target name="-post-jar">
-        <chmod file="${dist.dir}/lingua.jar" perm="ugo+x"/>
+        <chmod file="dist/lingua.jar" perm="ugo+x"/>
+        <copy todir="dist">
+    		<fileset dir="misc"/>
+  	    </copy>
+  	    <chmod file="dist/INSTALL" perm="ugo+x"/>
+  	    <copy todir="dist">
+    		<fileset dir="sourceview-files"/>
+  	    </copy>
+  	    <delete file="dist/README.TXT"/>
+  	    <copy file="README.md" tofile="dist/README"/>
+  	    <copy todir="dist/lib">
+    		<fileset dir="lib-docs"/>
+  	    </copy>
     </target>
     
     <!--

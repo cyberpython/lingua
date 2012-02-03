@@ -27,6 +27,9 @@
                 </div>
             </div>
             <div class="sky">
+                <div id="latest-container" class="center">
+                    <a href="#download" id="latest"></a>
+                </div>
             </div>
         </header>
         
@@ -35,8 +38,7 @@
             
                 <h2>Lingua - Ολοκληρωμένο Περιβάλλον Ανάπτυξης Για Τη ΓΛΩΣΣΑ</h2>
                 
-                <p>Η Lingua είναι μία εφαρμογή για το 
-                <a target="_blank" href="http://gnome.gr/">περιβάλλον εργασίας Gnome</a> που επιτρέπει τη γρήγορη και εύκολη συγγραφή και εκτέλεση προγραμμάτων στη <a target="_blank" href="http://digitalschool.minedu.gov.gr/modules/ebook/show.php/DSGL-C101/36/198,1065/">ΓΛΩΣΣΑ</a>, τη γλώσσα προγραμματισμού που διδάσκεται στους μαθητές της Γ' λυκείου.</p>
+                <p>Η Lingua είναι μία εφαρμογή για συστήματα Linux (π.χ. <a target="_blank" href="http://www.ubuntu.com/">Ubuntu</a>, <a target="_blank" href="http://linuxmint.com/">Linux Mint</a>) που επιτρέπει τη γρήγορη και εύκολη συγγραφή και εκτέλεση προγραμμάτων στη <a target="_blank" href="http://digitalschool.minedu.gov.gr/modules/ebook/show.php/DSGL-C101/36/198,1065/">ΓΛΩΣΣΑ</a>, τη γλώσσα προγραμματισμού που διδάσκεται στους μαθητές της Γ&#39; λυκείου.</p>
             </section>
             
             <section>
@@ -60,7 +62,7 @@
             </section>
             
             <section>
-                <h2>Λήψη</h2>
+                <h2 id="download">Λήψη</h2>
             </section>
             
             <section>
@@ -72,8 +74,11 @@
                 
                 <p>Όλος ο κώδικας είναι διαθέσιμος υπό την <a target="_blank" href="http://www.opensource.org/licenses/mit-license.php">άδεια MIT</a> στο <a target="_blank" href="http://github.com/cyberpython/lingua">Github</a>.</p>
                 
-                <p>Για τη μεταγλώττιση του κώδικα χρειάζονται οι εξής βιβλιοθήκες και εφαρμογές:</p>
+                <p>Η εφαρμογή είναι εξ&#39; ολοκλήρου γραμμένη σε Java.<p>
+                
+                <p>Για τη μεταγλώττιση του κώδικα χρειάζονται οι εξής εφαρμογές και βιβλιοθήκες:</p>
                 <ul>
+                    <li><p>OpenJDK <code>&ge;6u10</code></p></li>
                     <li><p>Git</p></li>
                     <li><p>Ant</p></li>
                     <li><p>GLib <code>&ge; 2.28.0</code> </p></li>
@@ -87,7 +92,7 @@
                     <li><p>librsvg <code>&ge; 2.32.0</code></p></li>
                 </ul>
                 
-                <p>Και εκτελούμε τις παρακάτω εντολές σε ένα τερματικό (εκτός από την παραγωγή του εκτελέσιμου αρχείου και των απαραίτητων βιβλιοθηκών, θα γίνει εγκατάσταση των αρχείων<code>~/.local/share/gtksourceview-3.0/language-specs/glossa.lang</code> και <code>~/.local/share/gtksourceview-3.0/styles/glossa.xml</code>):</p>
+                <p>Και εκτελούμε τις παρακάτω εντολές σε ένα τερματικό (εκτός από την παραγωγή του εκτελέσιμου αρχείου και των απαραίτητων βιβλιοθηκών, θα γίνει εγκατάσταση των αρχείων <code>~/.local/share/gtksourceview-3.0/language-specs/glossa.lang</code> και <code>~/.local/share/gtksourceview-3.0/styles/glossa.xml</code>):</p>
                 <pre>cd ~
 git clone git://github.com/cyberpython/lingua.git
 cd lingua

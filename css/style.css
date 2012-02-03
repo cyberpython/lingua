@@ -24,7 +24,7 @@ section{
     margin-bottom: 40px;
 }
 
-section>p, section pre, section>ul{
+section>p, section>pre, section>ul{
     margin-left: 60px;
 }
 
@@ -131,6 +131,29 @@ footer{
 
 footer>p{
     text-align: center;
+}
+
+#latest-container{
+    position: relative;
+    height: 300px;
+}
+
+#latest{
+    width: 150px;
+    height: 150px;
+    background-image: url('../img/latest.png');
+    background-image: url('../img/latest.svg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    display: block;
+    position: absolute;
+    right: -55px;
+    bottom: -75px;
+    transform:rotate(15deg);
+    -ms-transform:rotate(15deg);
+    -moz-transform:rotate(15deg);
+    -webkit-transform:rotate(15deg);
+    -o-transform:rotate(15deg);
 }
 
 #features-list{

@@ -20,7 +20,8 @@
 		        'transitionOut'	:	'elastic',
 		        'speedIn'		:	600, 
 		        'speedOut'		:	200, 
-		        'overlayShow'	:	false
+		        'overlayShow'	:	true,
+		        'titlePosition' :   'inside'
 	        });
 		});
 	</script>
@@ -38,12 +39,12 @@
                 <div class="center">
                     <h1>Lingua</h1>
                     <h2>Περιβάλλον Ανάπτυξης Για Τη ΓΛΩΣΣΑ</h2>
-                    <nav>
+                    <nav id="nav">
                         <ul>
-                            <li><a href="#">Αρχική</a></li>
-                            <li><a href="#">Λήψη</a></li>
-                            <li><a href="#">Εγκατάσταση</a></li>
-                            <li><a href="#">Κώδικας</a></li>
+                            <li><a href="#screenshots">Εικόνες</a></li>
+                            <li><a href="#download">Λήψη</a></li>
+                            <li><a href="#installation">Εγκατάσταση</a></li>
+                            <li><a href="#code">Κώδικας</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -60,11 +61,14 @@
             
                 <h2>Lingua - Ολοκληρωμένο Περιβάλλον Ανάπτυξης Για Τη ΓΛΩΣΣΑ</h2>
                 
-                <p>Η Lingua είναι μία εφαρμογή για συστήματα Linux (π.χ. <a target="_blank" href="http://www.ubuntu.com/">Ubuntu</a>, <a target="_blank" href="http://linuxmint.com/">Linux Mint</a>) που επιτρέπει τη γρήγορη και εύκολη συγγραφή και εκτέλεση προγραμμάτων στη <a target="_blank" href="http://digitalschool.minedu.gov.gr/modules/ebook/show.php/DSGL-C101/36/198,1065/">ΓΛΩΣΣΑ</a>, τη γλώσσα προγραμματισμού που διδάσκεται στους μαθητές της Γ&#39; λυκείου.</p>
+                <p>Lingua στα Λατινικά σημαίνει &laquo;γλώσσα&raquo;. Πρόκειται για μία εφαρμογή για συστήματα Linux (π.χ. <a target="_blank" href="http://www.ubuntu.com/">Ubuntu</a>) που επιτρέπει τη γρήγορη και εύκολη συγγραφή και εκτέλεση προγραμμάτων στη <a target="_blank" href="http://digitalschool.minedu.gov.gr/modules/ebook/show.php/DSGL-C101/36/198,1065/">ΓΛΩΣΣΑ</a>, τη γλώσσα προγραμματισμού που διδάσκεται στους μαθητές της Γ&#39; λυκείου.</p>
+                
+                <p>Αν αναζητάτε μία αντίστοιχη εφαρμογή για Windows, τότε δείτε το
+                <a target="_blank" href="http://alkisg.mysch.gr/">Διερμηνευτή της ΓΛΩΣΣΑΣ</a>, του Άλκη Γεωργόπουλου.</p>
             </section>
             
             <section>
-                <h2>Χαρακτηριστικά</h2>
+                <h2 id="features">Χαρακτηριστικά</h2>
                 <ul id="features-list">
                     <li>
                         Ενσωματωμένος <a target="_blank" href="https://github.com/cyberpython/glossa-interpreter">διερμηνευτής</a> με δυνατότητα εκτέλεσης σε πραγματικό χρόνο, βήμα-προς-βήμα ή με χρονοκαθυστέρηση ανά εντολή.
@@ -83,25 +87,30 @@
             </section>
             
             <section>
-                <h2>Εικόνες λειτουργίας</h2>
+                <h2 id="screenshots">Εικόνες λειτουργίας</h2>
                 <p>
-                    <a class="screenshot" rel="gallery1" href="screenshots/screenshot1.jpg"><img src="screenshots/screenshot1_thumb.jpg" alt=""/></a>
-                    <a class="screenshot" rel="gallery1" href="screenshots/screenshot2.jpg"><img src="screenshots/screenshot2_thumb.jpg" alt=""/></a>
-                    <a class="screenshot" rel="gallery1" href="screenshots/screenshot3.jpg"><img src="screenshots/screenshot3_thumb.jpg" alt=""/></a>
-                    <a class="screenshot" rel="gallery1" href="screenshots/screenshot4.jpg"><img src="screenshots/screenshot4_thumb.jpg" alt=""/></a>
+                    <a class="screenshot" href="screenshots/1.png" title="Η εφαρμογή μόλις έχει εκκινηθεί."><img src="screenshots/1_thumb.png" alt=""/></a>
+                    <a class="screenshot" href="screenshots/2.png" title="Το πρώτο πρόγραμμα που γράφει κάποιος όταν μαθαίνει μία γλώσσα προγραμματισμού."><img src="screenshots/2_thumb.png" alt=""/></a>
+                    <a class="screenshot" href="screenshots/3.png" title="Εκτέλεση βήμα προς βήμα."><img src="screenshots/3_thumb.png" alt=""/></a>
+                    <a class="screenshot" href="screenshots/4.png" title="Χρήση του αρχείου εισόδου για την εισαγωγή τιμών σε πίνακα."><img src="screenshots/4_thumb.png" alt=""/></a>
+                    <a class="screenshot" href="screenshots/5.png" title="Επιλογή του χρωματικού συνδυασμού του επεξεργαστή κώδικα."><img src="screenshots/5_thumb.png" alt=""/></a>
                 </p>
             </section>
             
             <section>
                 <h2 id="download">Λήψη</h2>
+                <p>Κάντε κλικ <a href="https://github.com/downloads/cyberpython/lingua/lingua.zip">εδώ</a> για να κατεβάσετε την πιο πρόσφατη έκδοση της εφαρμογής.</p>
             </section>
             
             <section>
-                <h2>Εγκατάσταση</h2>
+                <h2 id="installation">Εγκατάσταση</h2>
+                <p>Αποσυμπιέστε το αρχείο <code>lingua.zip</code> και κάντε διπλό κλικ στο αρχείο με το εικονίδιο: <img id="lingua-icon" alt="" src="img/lingua-icon.png" /> ή εκτελέστε σε τερματικό την εντολή:</p>
+                <pre>cd <em>κατάλογος_όπου_αποσυμπιέσατε_το_lingua.zip</em>
+./run-lingua</pre>
             </section>
             
             <section>
-                <h2>Κώδικας</h2>
+                <h2 id="code">Κώδικας</h2>
                 
                 <p>Όλος ο κώδικας είναι διαθέσιμος υπό την <a target="_blank" href="http://www.opensource.org/licenses/mit-license.php">άδεια MIT</a> στο <a target="_blank" href="http://github.com/cyberpython/lingua">Github</a>.</p>
                 
@@ -123,7 +132,7 @@
                     <li><p>librsvg <code>&ge; 2.32.0</code></p></li>
                 </ul>
                 
-                <p>Και εκτελούμε τις παρακάτω εντολές σε ένα τερματικό (εκτός από την παραγωγή του εκτελέσιμου αρχείου και των απαραίτητων βιβλιοθηκών, θα γίνει εγκατάσταση των αρχείων <code>~/.local/share/gtksourceview-3.0/language-specs/glossa.lang</code> και <code>~/.local/share/gtksourceview-3.0/styles/glossa.xml</code>):</p>
+                <p>Και εκτελούμε τις παρακάτω εντολές σε ένα τερματικό (εκτός από την παραγωγή του εκτελέσιμου αρχείου και των απαραίτητων βιβλιοθηκών, θα γίνει εγκατάσταση / επανεγγραφή των αρχείων <code>~/.local/share/gtksourceview-3.0/language-specs/glossa.lang</code> και <code>~/.local/share/gtksourceview-3.0/styles/glossa.xml</code>):</p>
                 <pre>cd ~
 git clone git://github.com/cyberpython/lingua.git
 cd lingua
@@ -134,6 +143,10 @@ cd lingua
         </div>
         
         <footer>
+            <div id="tree-container" class="center">
+                <div id="tree">
+                </div>
+            </div>
             <p class="center">
                 Copyright &copy; 2012 Γεώργιος Μίγδος.
             </p>

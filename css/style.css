@@ -7,13 +7,12 @@ body{
     font-family: "LiberationSans", sans-serif;
     font-size: 14px;
     color: #333;
-    min-width:  300px;
 }
 
 .center, section{
-    padding: 0 20px 0 20px;
-    max-width: 760px;
+    padding: 0 20px;
     margin: 0 auto;
+    max-width: 760px;
 }
 
 h1, h2, h3, h4, h5, h6{
@@ -21,11 +20,13 @@ h1, h2, h3, h4, h5, h6{
 }
 
 section{
-    margin-bottom: 40px;
+    margin-bottom: 80px;
+    overflow: hidden;
 }
 
 section>p, section>pre, section>ul{
     margin-left: 60px;
+    margin-right: 40px;
 }
 
 ul{
@@ -45,12 +46,17 @@ a:hover{
     color: #333;
 }
 
+a.thumbnail{
+    margin: 40px 26px;
+}
+
 pre{
     border: 1px dashed #fff;
     padding: 10px;
     background-color: #000;
     color: #fff;
     line-height: 25px;
+    overflow-x: auto;
 }
 
 code{
@@ -120,13 +126,14 @@ nav ul li{
     background-position: center top;
     background-repeat: repeat-x;
     padding-top: 50px;
-    padding-bottom: 200px;
+    padding-bottom: 100px;
 }
 
 footer{
-    background-color: #333;
+    background-color: #212121;
     color: #fff;
     padding: 10px;
+    font-size: 80%;
 }
 
 footer>p{
@@ -141,14 +148,13 @@ footer>p{
 #latest{
     width: 150px;
     height: 150px;
-    background-image: url('../img/latest.png');
     background-image: url('../img/latest.svg');
     background-position: center center;
     background-repeat: no-repeat;
     display: block;
-    position: absolute;
-    right: -55px;
-    bottom: -75px;
+    margin: 200px 20px 0 0 ;
+    float: right;
+    
     transform:rotate(15deg);
     -ms-transform:rotate(15deg);
     -moz-transform:rotate(15deg);
@@ -164,5 +170,29 @@ footer>p{
 #features-list li{
     width:  200px;
     float: left;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+#lingua-icon{
+    display: block;
     margin: 10px 20px;
 }
+
+#tree{
+    width: 41px;
+    height: 102px;
+    background-image: url('../img/tree.svg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    display: block;
+    margin: -112px 0 0 0 ;
+    float: right;
+}
+
+#fancybox-title{
+    font-family: 'LiberationSans';
+    font-weight: bold;
+    color: #333;
+}
+

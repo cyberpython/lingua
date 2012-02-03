@@ -52,10 +52,14 @@ mkdir ~/.local/share/gtksourceview-3.0/language-specs
 if [ ! -f ~/.local/share/gtksourceview-3.0/styles/glossa.xml ]
 then
     mv glossa.xml ~/.local/share/gtksourceview-3.0/styles/glossa.xml
+else
+    rm glossa.xml
 fi
 
 if [ ! -f ~/.local/share/gtksourceview-3.0/language-specs/glossa.lang ]
 then
     mv glossa.lang ~/.local/share/gtksourceview-3.0/language-specs/glossa.lang
+else
+    rm glossa.lang
 fi
 

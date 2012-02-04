@@ -45,10 +45,6 @@ public class Preferences extends PreferencesStorage{
     private final boolean DEFAULT_EDITOR_HIGLIGHTS_CURRENT_LINE = true;
     private final String DEFAULT_EDITOR_SCHEME = "glossa";
 
-    //TODO: runtime window colors
-
-    //TODO: highlight colors
-
     public static Preferences getInstance(){
         if(instance == null){
             instance = new Preferences();
@@ -77,7 +73,6 @@ public class Preferences extends PreferencesStorage{
         InputFileWindow.getInstance().setFont(fontDescription);
 
         RuntimeWindow.getInstance().setFont(fontDescription);
-        //TODO: Set the colors from preferences
 
         Editor ed = Editor.getInstance();
         ed.setFont(fontDescription);

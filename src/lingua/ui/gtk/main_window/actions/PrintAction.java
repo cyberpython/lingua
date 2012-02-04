@@ -21,11 +21,15 @@
  *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  *  THE SOFTWARE.
  */
-
 package lingua.ui.gtk.main_window.actions;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import lingua.preferences.Preferences;
 import lingua.resources.StringResources;
 import lingua.ui.gtk.main_window.MainWindow;
+import lingua.ui.gtk.main_window.widgets.Editor;
 import org.freedesktop.icons.ActionIcon;
 import org.gnome.gdk.Keyval;
 import org.gnome.gdk.ModifierType;
@@ -35,25 +39,48 @@ import org.gnome.gtk.Action;
  *
  * @author Georgios Migdos <cyberpython@gmail.com>
  */
-public class PrintAction extends Action{
+public class PrintAction extends Action {
+
     private static PrintAction instance = null;
 
-    public static PrintAction getInstance(){
-        if(instance == null){
+    public static PrintAction getInstance() {
+        if (instance == null) {
             instance = new PrintAction();
         }
         return instance;
     }
 
-
     private PrintAction() {
-        super("PrintAction",  StringResources.getInstance().getString("file_print"),
+        super("PrintAction", StringResources.getInstance().getString("file_print"),
                 StringResources.getInstance().getString("tooltip_file_print"),
-                ActionIcon.DOCUMENT_PRINT);
+                ActionIcon.DOCUMENT_PRINT, new Activate() {
+
+            public void onActivate(Action source) {
+                try {
+                    File path = new File(this.getClass().getProtectionDomain().getCodeSource().getLocation().toURI().getPath()).getParentFile();
+                    File tmpFile = File.createTempFile("lingua", ".gls");
+                    BufferedWriter out = new BufferedWriter(new FileWriter(tmpFile));
+                    out.write(Editor.getInstance().getBuffer().getText());
+                    out.flush();
+                    out.close();
+                    Preferences prefs = Preferences.getInstance();
+                    String scheme = prefs.getEditorScheme();
+                    String[] cmdarr = {
+                        "/usr/bin/python",
+                        path.getAbsolutePath()+"/source_printer.py",
+                        "glossa",
+                        scheme==null?"glossa":scheme,
+                        prefs.getPangoCompatibleFontDescriptionString(),
+                        tmpFile.getAbsolutePath()
+                    };
+                    ProcessBuilder pb = new ProcessBuilder(cmdarr);
+                    pb.start();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
         setAccelerator(MainWindow.getAcceleratorGroup(), Keyval.P, ModifierType.CONTROL_MASK);
 
-        //FIXME
-        setSensitive(false);
     }
-
 }

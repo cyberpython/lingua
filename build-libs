@@ -44,7 +44,7 @@ cd ../
 
 mkdir lib
 
-cp java-gnome/tmp/gtk-4.1.jar lib/gtk-4.1.2-dev.jar
+cp java-gnome/tmp/gtk-4.1.jar lib/gtk-4.1.jar
 cp java-gnome/tmp/libgtkjni-4.1.2-dev.so lib/libgtkjni-4.1.2-dev.so
 cp glossa-interpreter/dist/Glossa.jar lib/Glossa.jar
 cp glossa-interpreter/dist/lib/antlr-3.2.jar lib/antlr-3.2.jar

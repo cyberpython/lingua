@@ -24,6 +24,8 @@ Lingua στα Λατινικά σημαίνει «γλώσσα». Πρόκειτ
 Εγκατάσταση
 -----------
 
+Πρέπει να έχετε εγκατεστημένο το OpenJDK JRE <code>&ge;6u10</code>.
+
 Αποσυμπιέστε το αρχείο lingua.zip και κάντε διπλό κλικ στο αρχείο `INSTALL`. Θα εμφανιστεί ένα αρχείο με το όνομα `Lingua`. Κάντε διπλό κλικ σε αυτό το αρχείο για να τρέξετε την εφαρμογή ή δώστε σε ένα τερματικό:
 
     cd _κατάλογος_όπου_αποσυμπιέσατε_το_lingua.zip_
@@ -37,13 +39,25 @@ Lingua στα Λατινικά σημαίνει «γλώσσα». Πρόκειτ
 
 Όλος ο κώδικας είναι διαθέσιμος υπό την [άδεια MIT](http://www.opensource.org/licenses/mit-license.php) στο [Github](http://github.com/cyberpython/lingua).
 
-Χρησιμοποιούνται: [java-gnome (τροποποιημένη GPL)](java-gnome.sourceforge.net), [JOpt Simple (άδεια MIT)](http://pholser.github.com/jopt-simple/), [Antlr3.2 (άδεια BSD)](http://www.antlr.org/) και [glossa-interpreter (άδεια MIT)](https://github.com/cyberpython/glossa-interpreter).
+Χρησιμοποιούνται:
 
-Η εφαρμογή είναι εξ' ολοκλήρου γραμμένη σε Java.
+* [java-gnome (τροποποιημένη GPL)](http://java-gnome.sourceforge.net) με [ορισμένα patches](https://github.com/cyberpython/java-gnome)
+
+* [JOpt Simple (άδεια MIT)](http://pholser.github.com/jopt-simple/)
+
+* [Antlr3.2 (άδεια BSD)](http://www.antlr.org/)
+
+* [glossa-interpreter (άδεια MIT)](https://github.com/cyberpython/glossa-interpreter).
+
+
+
+Η εφαρμογή είναι γραμμένη σε Java (εκτός από το script που χειρίζεται την εκτύπωση που είναι γραμμένο σε Python).
+
+
 
 Για τη μεταγλώττιση του κώδικα χρειάζονται οι εξής εφαρμογές και βιβλιοθήκες:
 
-* OpenJDK ≥6u10
+* OpenJDK JDK ≥6u10
 
 * Git
 
@@ -66,6 +80,7 @@ Lingua στα Λατινικά σημαίνει «γλώσσα». Πρόκειτ
 * Enchant ≥ 1.4.2
 
 * librsvg ≥ 2.32.0
+
 
 Εκτελούμε τις παρακάτω εντολές σε ένα τερματικό:
 

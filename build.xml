@@ -13,6 +13,9 @@
     
     <target name="-post-jar">
         <chmod file="dist/lingua.jar" perm="ugo+x"/>
+        <copy todir="dist/help">
+    		<fileset dir="help"/>
+  	    </copy>
         <copy todir="dist">
     		<fileset dir="misc"/>
   	    </copy>

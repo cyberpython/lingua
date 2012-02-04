@@ -21,36 +21,47 @@
  *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  *  THE SOFTWARE.
  */
-
 package lingua.ui.gtk.main_window.actions;
 
+import java.io.File;
+import java.net.URISyntaxException;
 import lingua.resources.StringResources;
+import lingua.ui.gtk.main_window.MainWindow;
+import lingua.utils.MiscUtils;
 import org.freedesktop.icons.ActionIcon;
+import org.gnome.gdk.Keyval;
+import org.gnome.gdk.ModifierType;
 import org.gnome.gtk.Action;
 
 /**
  *
  * @author Georgios Migdos <cyberpython@gmail.com>
  */
-public class ShowHelpAction extends Action{
+public class ShowHelpAction extends Action {
+
     private static ShowHelpAction instance = null;
 
-    public static ShowHelpAction getInstance(){
-        if(instance == null){
+    public static ShowHelpAction getInstance() {
+        if (instance == null) {
             instance = new ShowHelpAction();
         }
         return instance;
     }
 
-
     private ShowHelpAction() {
         super("ShowHelpAction",
                 StringResources.getInstance().getString("show_help_contents"),
                 StringResources.getInstance().getString("show_help_contents"),
-                ActionIcon.HELP_CONTENTS);
+                ActionIcon.HELP_CONTENTS, new Activate() {
 
-        //FIXME
-        setSensitive(false);
+            public void onActivate(Action action) {
+                try {
+                    MiscUtils.xdgOpenFile(new File(new File(this.getClass().getProtectionDomain().getCodeSource().getLocation().toURI().getPath()).getParentFile().getAbsolutePath() + "/help/index.html"));
+                } catch (URISyntaxException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+        setAccelerator(MainWindow.getAcceleratorGroup(), Keyval.F1, ModifierType.NONE);
     }
-
 }

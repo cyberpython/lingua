@@ -25,6 +25,8 @@
   	    </copy>
   	    <delete file="dist/README.TXT"/>
   	    <copy file="README.md" tofile="dist/README"/>
+  	    <copy file="COPYING" tofile="dist/COPYING"/>
+  	    <copy file="AUTHORS" tofile="dist/AUTHORS"/>
   	    <copy todir="dist/lib">
     		<fileset dir="lib-docs"/>
   	    </copy>

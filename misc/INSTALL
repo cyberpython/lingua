@@ -43,11 +43,8 @@ echo "Exec=java -jar $DIR/lingua.jar" | cat >> lingua.desktop
 echo "Icon=$DIR/lingua-icon.svg" | cat >> lingua.desktop
 chmod +x lingua.desktop
 
-mkdir ~/.local
-mkdir ~/.local/share
-mkdir ~/.local/share/gtksourceview-3.0
-mkdir ~/.local/share/gtksourceview-3.0/styles
-mkdir ~/.local/share/gtksourceview-3.0/language-specs
+mkdir -p ~/.local/share/gtksourceview-3.0/styles
+mkdir -p ~/.local/share/gtksourceview-3.0/language-specs
 
 if [ ! -f ~/.local/share/gtksourceview-3.0/styles/glossa.xml ]
 then

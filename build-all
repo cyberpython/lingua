@@ -24,9 +24,41 @@
 #*  THE SOFTWARE.
 #*
 
-if [ ! -d lib ]
+mkdir -p lib
+
+if [ ! -f lib/gtk-4.1.jar ]
 then
-    ./build-libs
+    git clone git://github.com/cyberpython/java-gnome.git
+
+    cd java-gnome
+
+    ./configure
+
+    make
+
+    cd ../
+    
+    cp java-gnome/tmp/gtk-4.1.jar lib/gtk-4.1.jar
+    cp java-gnome/tmp/libgtkjni-4.1.2-dev.so lib/libgtkjni-4.1.2-dev.so
+    
+    rm -rf java-gnome
+fi
+
+if [ ! -f lib/Glossa.jar ]
+then
+    git clone git://github.com/cyberpython/glossa-interpreter.git
+
+    cd glossa-interpreter
+
+    ant clean jar
+
+    cd ../
+    
+    cp glossa-interpreter/dist/Glossa.jar lib/Glossa.jar
+    cp glossa-interpreter/dist/lib/antlr-3.2.jar lib/antlr-3.2.jar
+    cp glossa-interpreter/dist/lib/jopt-simple-3.2.jar lib/jopt-simple-3.2.jar
+    
+    rm -rf glossa-interpreter
 fi
 
 ant clean jar

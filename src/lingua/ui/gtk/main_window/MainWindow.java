@@ -42,6 +42,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStreamWriter;
 import lingua.preferences.Preferences;
+import lingua.resources.IconResources;
 import lingua.ui.gtk.main_window.actions.RunAction;
 import lingua.ui.gtk.main_window.actions.StopAction;
 import lingua.ui.gtk.main_window.actions.ToggleStepByStepAction;
@@ -69,7 +70,6 @@ import org.gnome.gtk.Window;
  * @author Georgios Migdos <cyberpython@gmail.com>
  */
 public class MainWindow extends Window implements InterpreterListener{
-
     private static MainWindow instance;
     private final Box mainContainer;
     private final BottomPane bottomPane;
@@ -124,21 +124,7 @@ public class MainWindow extends Window implements InterpreterListener{
         this.setTitle(StringResources.getInstance().getString("untitled") + " - " + StringResources.getInstance().getString("app_name"));
 
         this.resize(800, 600);
-        try {
-            BufferedInputStream bis = new BufferedInputStream(MainWindow.class.getResourceAsStream("/lingua/resources/icon.svg"));
-            ByteArrayOutputStream buffer = new ByteArrayOutputStream();
-            byte[] buf = new byte[512];
-            int read = 0;
-            while ((read = bis.read(buf)) > -1) {
-                buffer.write(buf, 0, read);
-            }
-            bis.close();
-            buffer.flush();
-            this.setIcon(new Pixbuf(buffer.toByteArray()));
-            buffer.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        setIcon(IconResources.getIcon());
 
         connect(new Window.DeleteEvent() {
 

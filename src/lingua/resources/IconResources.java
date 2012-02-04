@@ -22,39 +22,41 @@
  *  THE SOFTWARE.
  */
 
-package lingua.ui.gtk.main_window.actions;
+package lingua.resources;
 
-import lingua.resources.StringResources;
-import lingua.ui.gtk.main_window.dialogs.messages.LinguaAboutDialog;
-import org.freedesktop.icons.ActionIcon;
-import org.gnome.gtk.Action;
+import java.io.BufferedInputStream;
+import java.io.ByteArrayOutputStream;
+import org.gnome.gdk.Pixbuf;
 
 /**
  *
  * @author Georgios Migdos <cyberpython@gmail.com>
  */
-public class ShowAboutDialogAction extends Action{
-    private static ShowAboutDialogAction instance = null;
+public class IconResources {
 
-    public static ShowAboutDialogAction getInstance(){
-        if(instance == null){
-            instance = new ShowAboutDialogAction();
-        }
-        return instance;
-    }
+    private static Pixbuf icon = loadIcon();
 
-
-    private ShowAboutDialogAction() {
-        super("ShowAboutDialogAction",
-                StringResources.getInstance().getString("show_about_dialog"),
-                StringResources.getInstance().getString("show_about_dialog"),
-                ActionIcon.HELP_ABOUT, new Activate() {
-
-            public void onActivate(Action source) {
-                LinguaAboutDialog dlg = LinguaAboutDialog.getInstance();
-                dlg.present();
+    private static Pixbuf loadIcon(){
+        try {
+            BufferedInputStream bis = new BufferedInputStream(IconResources.class.getResourceAsStream("/lingua/resources/icon.svg"));
+            ByteArrayOutputStream buffer = new ByteArrayOutputStream();
+            byte[] buf = new byte[512];
+            int read = 0;
+            while ((read = bis.read(buf)) > -1) {
+                buffer.write(buf, 0, read);
             }
-        });
+            bis.close();
+            buffer.flush();
+            byte[] bytes = buffer.toByteArray();
+            buffer.close();
+            return new Pixbuf(bytes);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
+    public static Pixbuf getIcon(){
+        return icon;
+    }
 }

@@ -28,7 +28,6 @@ import lingua.resources.StringResources;
 import lingua.ui.gtk.main_window.dialogs.preferences.PreferencesDialog;
 import org.freedesktop.icons.ActionIcon;
 import org.gnome.gtk.Action;
-import org.gnome.gtk.ResponseType;
 
 /**
  *

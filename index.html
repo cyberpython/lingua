@@ -104,9 +104,22 @@
             
             <section>
                 <h2 id="installation">Εγκατάσταση</h2>
-                <p>Αποσυμπιέστε το αρχείο <code>lingua.zip</code> και κάντε διπλό κλικ στο αρχείο <code>INSTALL</code>. Θα εμφανιστεί ένα αρχείο με το όνομα <code>Lingua</code> και με το εικονίδιο: <img id="lingua-icon" alt="" src="img/lingua-icon.png" /> Κάντε διπλό κλικ σε αυτό το αρχείο για να τρέξετε την εφαρμογή ή δώστε σε ένα τερματικό:</p>
-                <pre>cd <em>κατάλογος_όπου_αποσυμπιέσατε_το_lingua.zip</em>
-java -jar lingua.jar</pre>
+                
+                <p>Πρέπει να έχετε εγκατεστημένο το OpenJDK JRE <code>&ge;6u10</code> και το GTK <code>&ge;3.0.4</code>.</p>
+                
+                <ul>
+                    <li>
+                        <h3>Εγκατάσταση μόνο για τον τρέχοντα χρήστη</h3>
+                        <p>Αποσυμπιέστε το αρχείο <code>lingua.zip</code>, ανοίξτε τον κατάλογο lingua και κάντε διπλό κλικ στο αρχείο <code>INSTALL</code>. Θα εμφανιστεί ένα αρχείο με το όνομα <code>Lingua</code> και με το εικονίδιο: <img id="lingua-icon" alt="" src="img/lingua-icon.png" /> Κάντε διπλό κλικ σε αυτό το αρχείο για να τρέξετε την εφαρμογή ή δώστε σε ένα τερματικό:</p>
+                        <pre>cd <em>κατάλογος_όπου_αποσυμπιέσατε_το_lingua.zip</em>/lingua
+        java -jar lingua.jar</pre>
+                    </li>
+                    
+                    <li>
+                        <h3>Εγκατάσταση για όλους τους χρήστες</h3>
+                        <p>Δείτε πιο κάτω για το πως μπορείτε να κάνετε εγκατάσταση χρησιμοποιώντας τον πηγαίο κώδικα της εφαρμογής.</p>
+                    </li>
+                </ul>
             </section>
             
             <section>
@@ -139,12 +152,21 @@ java -jar lingua.jar</pre>
                 <pre>cd ~
 git clone git://github.com/cyberpython/lingua.git
 cd lingua
-./build-all
+make
 </pre>
                 
                 <p>Στο τέλος, το εκτελέσιμο αρχείο <code>lingua.jar</code> θα βρίσκεται στον κατάλογο <code>~/lingua/dist</code> .</p>
                 
                 <p><strong>Προσοχή :</strong> Για να εγκατασταθούν τα απαραίτητα αρχεία του GtkSourceview για τη χρωματική επισήμανση του κώδικα πρέπει να εκτελεστεί τουλάχιστον μία φορά το dist/INSTALL script</p>
+                
+                <p>Αν θέλουμε να κάνουμε εγκατάσταση της εφαρμογής στο σύστημα τότε δίνουμε:</p>
+                
+                <pre>sudo make install</pre>
+                
+                <p>Για απεγκατάσταση της εφαρμογής στο σύστημα δίνουμε:</p>
+                
+                <pre>sudo make uninstall</pre>
+                
             </section>
         </div>
         

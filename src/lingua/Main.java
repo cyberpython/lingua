@@ -41,7 +41,12 @@ public class Main {
     public static void main(String[] args) {
         MainWindow w = null;
 
-        Gtk.init(args);
+        try{
+            Gtk.init(args);
+        }catch(FatalError err){
+            
+        }
+
         init("lingua", "/usr/share/locale");
 
         try {

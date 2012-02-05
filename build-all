@@ -28,8 +28,12 @@ mkdir -p lib
 
 if [ ! -f lib/gtk-4.1.jar ]
 then
-    git clone git://github.com/cyberpython/java-gnome.git
 
+    if [ ! -d java-gnome ]
+    then
+        git clone git://github.com/cyberpython/java-gnome.git
+    fi
+    
     cd java-gnome
 
     ./configure
@@ -40,25 +44,32 @@ then
     
     cp java-gnome/tmp/gtk-4.1.jar lib/gtk-4.1.jar
     cp java-gnome/tmp/libgtkjni-4.1.2-dev.so lib/libgtkjni-4.1.2-dev.so
-    
-    rm -rf java-gnome
 fi
 
-if [ ! -f lib/Glossa.jar ]
+if [ ! -f lib/glossa-interpreter.jar ]
 then
-    git clone git://github.com/cyberpython/glossa-interpreter.git
-
+    
+    if [ ! -d glossa-interpreter ]
+    then
+        git clone git://github.com/cyberpython/glossa-interpreter.git
+    fi
+    
     cd glossa-interpreter
+    
+    rm -rf build
+    rm -rf dist
 
-    ant clean jar
+    ./build.sh
 
     cd ../
     
-    cp glossa-interpreter/dist/Glossa.jar lib/Glossa.jar
+    cp glossa-interpreter/dist/glossa-interpreter.jar lib/glossa-interpreter.jar
     cp glossa-interpreter/dist/lib/antlr-3.2.jar lib/antlr-3.2.jar
     cp glossa-interpreter/dist/lib/jopt-simple-3.2.jar lib/jopt-simple-3.2.jar
-    
-    rm -rf glossa-interpreter
 fi
 
 ant clean jar
+
+mkdir -p dist
+cp -R lib dist
+jar umf manifest-libs dist/lingua.jar

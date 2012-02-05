@@ -117,7 +117,33 @@
                     
                     <li>
                         <h3>Εγκατάσταση για όλους τους χρήστες</h3>
-                        <p>Δείτε πιο κάτω για το πως μπορείτε να κάνετε εγκατάσταση χρησιμοποιώντας τον πηγαίο κώδικα της εφαρμογής.</p>
+                        <p>Για τη μεταγλώττιση της εφαρμογής χρειάζονται οι εξής εφαρμογές και βιβλιοθήκες:</p>
+                        <ul>
+                            <li><p>OpenJDK <code>&ge;6u10</code></p></li>
+                            <li><p>Git</p></li>
+                            <li><p>Ant</p></li>
+                            <li><p>GLib <code>&ge; 2.28.0</code> </p></li>
+                            <li><p>GTK <code>&ge; 3.0.4</code> </p></li>
+                            <li><p>Cairo <code>&ge; 1.10.0</code></p></li>
+                            <li><p>Pango <code>&ge; 1.28.0</code></p></li>
+                            <li><p>gtksourceview <code>&ge; 2.91.9</code></p></li>
+                            <li><p>libnotify <code>&ge; 0.7.0</code></p></li>
+                            <li><p>libunique <code>&ge; 3.0</code></p></li>
+                            <li><p>Enchant <code>&ge; 1.4.2</code></p></li>
+                            <li><p>librsvg <code>&ge; 2.32.0</code></p></li>
+                        </ul>
+                        
+                        <p>Και εκτελούμε τις παρακάτω εντολές σε ένα τερματικό:</p>
+                        <pre>cd ~
+wget https://github.com/downloads/cyberpython/lingua/lingua-src.tar.gz
+tar -xvf lingua-src.tar.gz
+cd lingua
+make
+sudo make install</pre>
+                        
+                        <p>Για απεγκατάσταση της εφαρμογής από το σύστημα δίνουμε:</p>
+                        
+                        <pre>sudo make uninstall</pre>
                     </li>
                 </ul>
             </section>
@@ -131,41 +157,6 @@
                 <p>Χρησιμοποιούνται: <a href="java-gnome.sourceforge.net">java-gnome (τροποποιημένη GPL)</a>, <a href="http://pholser.github.com/jopt-simple/">JOpt Simple (άδεια MIT)</a>, <a href="http://www.antlr.org/">Antlr3.2 (άδεια BSD)</a> και <a href="https://github.com/cyberpython/glossa-interpreter">glossa-interpreter (άδεια MIT)</a>.</p>
                 
                 <p>Η εφαρμογή είναι εξ&#39; ολοκλήρου γραμμένη σε Java.<p>
-                
-                <p>Για τη μεταγλώττιση του κώδικα χρειάζονται οι εξής εφαρμογές και βιβλιοθήκες:</p>
-                <ul>
-                    <li><p>OpenJDK <code>&ge;6u10</code></p></li>
-                    <li><p>Git</p></li>
-                    <li><p>Ant</p></li>
-                    <li><p>GLib <code>&ge; 2.28.0</code> </p></li>
-                    <li><p>GTK <code>&ge; 3.0.4</code> </p></li>
-                    <li><p>Cairo <code>&ge; 1.10.0</code></p></li>
-                    <li><p>Pango <code>&ge; 1.28.0</code></p></li>
-                    <li><p>gtksourceview <code>&ge; 2.91.9</code></p></li>
-                    <li><p>libnotify <code>&ge; 0.7.0</code></p></li>
-                    <li><p>libunique <code>&ge; 3.0</code></p></li>
-                    <li><p>Enchant <code>&ge; 1.4.2</code></p></li>
-                    <li><p>librsvg <code>&ge; 2.32.0</code></p></li>
-                </ul>
-                
-                <p>Και εκτελούμε τις παρακάτω εντολές σε ένα τερματικό:</p>
-                <pre>cd ~
-git clone git://github.com/cyberpython/lingua.git
-cd lingua
-make
-</pre>
-                
-                <p>Στο τέλος, το εκτελέσιμο αρχείο <code>lingua.jar</code> θα βρίσκεται στον κατάλογο <code>~/lingua/dist</code> .</p>
-                
-                <p><strong>Προσοχή :</strong> Για να εγκατασταθούν τα απαραίτητα αρχεία του GtkSourceview για τη χρωματική επισήμανση του κώδικα πρέπει να εκτελεστεί τουλάχιστον μία φορά το dist/INSTALL script</p>
-                
-                <p>Αν θέλουμε να κάνουμε εγκατάσταση της εφαρμογής στο σύστημα τότε δίνουμε:</p>
-                
-                <pre>sudo make install</pre>
-                
-                <p>Για απεγκατάσταση της εφαρμογής στο σύστημα δίνουμε:</p>
-                
-                <pre>sudo make uninstall</pre>
                 
             </section>
         </div>

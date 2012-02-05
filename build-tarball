@@ -1,0 +1,90 @@
+#!/bin/bash
+
+#*
+#*  The MIT License
+#* 
+#*  Copyright 2012 Georgios Migdos <cyberpython@gmail.com>.
+#* 
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#* 
+#*  The above copyright notice and this permission notice shall be included in
+#*  all copies or substantial portions of the Software.
+#* 
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#*
+
+if [ -d binaries/lingua ]
+then
+    rm -rf binaries/lingua
+fi
+
+mkdir -p binaries/lingua
+cp -R glossa-interpreter binaries/lingua
+cp -R help binaries/lingua
+cp -R java-gnome binaries/lingua
+cp -R lib-docs binaries/lingua
+cp -R misc binaries/lingua
+cp -R nbproject binaries/lingua
+cp -R sourceview-files binaries/lingua
+cp -R src binaries/lingua
+cp AUTHORS binaries/lingua/AUTHORS
+cp build.xml binaries/lingua/build.xml
+cp build-all binaries/lingua/build-all
+cp build-tarball binaries/lingua/build-tarball
+cp COPYING binaries/lingua/COPYING
+cp Makefile binaries/lingua/Makefile
+cp manifest.mf binaries/lingua/manifest.mf
+cp manifest-libs binaries/lingua/manifest-libs
+cp README.md binaries/lingua/README.md
+
+if [ -d binaries/lingua/glossa-interpreter/build ]
+then
+    rm -rf binaries/lingua/glossa-interpreter/build
+fi
+
+if [ -d binaries/lingua/glossa-interpreter/dist ]
+then
+    rm -rf binaries/lingua/glossa-interpreter/dist
+fi
+
+if [ -d binaries/lingua/java-gnome/tmp ]
+then
+    rm -rf binaries/lingua/java-gnome/tmp
+fi
+
+cd binaries
+
+if [ -f lingua-$1-src.tar.gz ]
+then
+    rm -f lingua-$1-src.tar.gz
+fi
+
+tar -cvzf lingua-$1-src.tar.gz lingua
+
+rm -rf lingua
+
+if [ $# -gt 0 ]
+then
+
+    if [ -f lingua-src.tgz ]
+    then
+        rm -f lingua-src.tgz
+    fi
+
+    cp lingua-$1-src.tar.gz lingua-src.tar.gz
+
+fi
+
+cd ../
+

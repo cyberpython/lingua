@@ -34,31 +34,8 @@ Lingua στα Λατινικά σημαίνει «γλώσσα». Πρόκειτ
     java -jar lingua.jar
 
 ### Εγκατάσταση για όλους τους χρήστες
-    Δείτε πιο κάτω για το πως μπορείτε να κάνετε εγκατάσταση χρησιμοποιώντας τον πηγαίο κώδικα της εφαρμογής.
 
-
-Κώδικας
--------
-
-Όλος ο κώδικας είναι διαθέσιμος υπό την [άδεια MIT](http://www.opensource.org/licenses/mit-license.php) στο [Github](http://github.com/cyberpython/lingua).
-
-Χρησιμοποιούνται:
-
-* [java-gnome (τροποποιημένη GPL)](http://java-gnome.sourceforge.net) με [ορισμένα patches](https://github.com/cyberpython/java-gnome)
-
-* [JOpt Simple (άδεια MIT)](http://pholser.github.com/jopt-simple/)
-
-* [Antlr3.2 (άδεια BSD)](http://www.antlr.org/)
-
-* [glossa-interpreter (άδεια MIT)](https://github.com/cyberpython/glossa-interpreter).
-
-
-
-Η εφαρμογή είναι γραμμένη σε Java (εκτός από το script που χειρίζεται την εκτύπωση που είναι γραμμένο σε Python).
-
-
-
-Για τη μεταγλώττιση του κώδικα χρειάζονται οι εξής εφαρμογές και βιβλιοθήκες:
+Για τη μεταγλώττιση της εφαρμογής χρειάζονται οι εξής εφαρμογές και βιβλιοθήκες:
 
 * OpenJDK JDK ≥6u10
 
@@ -88,17 +65,30 @@ Lingua στα Λατινικά σημαίνει «γλώσσα». Πρόκειτ
 Εκτελούμε τις παρακάτω εντολές σε ένα τερματικό:
 
     cd ~
-    git clone git://github.com/cyberpython/lingua.git
+    wget https://github.com/downloads/cyberpython/lingua/lingua-src.tar.gz
+    tar -xvf lingua-src.tar.gz
     cd lingua
     make
-
-
-Στο τέλος, το εκτελέσιμο αρχείο `lingua.jar` θα βρίσκεται στον κατάλογο `~/lingua/dist` .
-
-__Προσοχή :__ Για να εγκατασταθούν τα απαραίτητα αρχεία του GtkSourceview για τη χρωματική επισήμανση του κώδικα πρέπει να εκτελεστεί τουλάχιστον μία φορά το `dist/INSTALL` script
-
-Αν θέλουμε να κάνουμε εγκατάσταση της εφαρμογής στο σύστημα τότε δίνουμε:
-
     sudo make install
+
+
+Κώδικας
+-------
+
+Όλος ο κώδικας είναι διαθέσιμος υπό την [άδεια MIT](http://www.opensource.org/licenses/mit-license.php) στο [Github](http://github.com/cyberpython/lingua).
+
+Χρησιμοποιούνται:
+
+* [java-gnome (τροποποιημένη GPL)](http://java-gnome.sourceforge.net) με [ορισμένα patches](https://github.com/cyberpython/java-gnome)
+
+* [JOpt Simple (άδεια MIT)](http://pholser.github.com/jopt-simple/)
+
+* [Antlr3.2 (άδεια BSD)](http://www.antlr.org/)
+
+* [glossa-interpreter (άδεια MIT)](https://github.com/cyberpython/glossa-interpreter).
+
+
+
+Η εφαρμογή είναι γραμμένη σε Java (εκτός από το script που χειρίζεται την εκτύπωση που είναι γραμμένο σε Python).
 
 

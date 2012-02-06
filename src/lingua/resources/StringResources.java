@@ -40,7 +40,7 @@ public class StringResources {
     private StringResources() {
         this.strings = new HashMap<String, String>();
         strings.put("app_name", _("Περιβάλλον Ανάπτυξης Για Τη ΓΛΩΣΣΑ"));
-        strings.put("app_version", "1.0");
+        strings.put("app_version", "0.0.2");
 
         strings.put("file", _("_Αρχείο"));
         strings.put("file_new", _("_Δημιουργία"));

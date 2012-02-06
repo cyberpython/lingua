@@ -107,24 +107,34 @@
             
             <section>
                 <h2 id="download">Λήψη</h2>
-                <p>Κάντε κλικ <a href="https://github.com/downloads/cyberpython/lingua/lingua.zip">εδώ</a> για να κατεβάσετε την πιο πρόσφατη έκδοση της εφαρμογής.</p>
+                <p>Κάντε κλικ <a href="https://github.com/downloads/cyberpython/lingua/lingua-0.0.3-i386.zip">εδώ</a> για να κατεβάσετε την πιο πρόσφατη έκδοση της εφαρμογής.</p>
             </section>
             
             <section>
                 <h2 id="installation">Εγκατάσταση</h2>
                 
+                <h3>Ubuntu</h3>
+                
+                <p>Για τους χρήστες Ubuntu υπάρχει αυτό το PPA: <a target="_blank" href="https://launchpad.net/~medigeek/+archive/lingua">https://launchpad.net/~medigeek/+archive/lingua</a></p>
+                <p>Για εγκατάσταση δώστε σε τερματικό:</p>
+                <pre>sudo add-apt-repository ppa:medigeek/lingua
+sudo apt-get update
+sudo apt-get install lingua</pre>
+
+                <h3>Άλλες διανομές</h3>
+                
                 <p>Πρέπει να έχετε εγκατεστημένο το OpenJDK JRE <code>&ge;6u10</code> και το GTK <code>&ge;3.0.4</code>.</p>
                 
                 <ul>
                     <li>
-                        <h3>Εγκατάσταση μόνο για τον τρέχοντα χρήστη</h3>
-                        <p>Αποσυμπιέστε το αρχείο <code>lingua.zip</code>, ανοίξτε τον κατάλογο lingua και κάντε διπλό κλικ στο αρχείο <code>INSTALL</code>. Θα εμφανιστεί ένα αρχείο με το όνομα <code>Lingua</code> και με το εικονίδιο: <img id="lingua-icon" alt="" src="img/lingua-icon.png" /> Κάντε διπλό κλικ σε αυτό το αρχείο για να τρέξετε την εφαρμογή ή δώστε σε ένα τερματικό:</p>
-                        <pre>cd <em>κατάλογος_όπου_αποσυμπιέσατε_το_lingua.zip</em>/lingua
-        java -jar lingua.jar</pre>
+                        <h4>Εγκατάσταση μόνο για τον τρέχοντα χρήστη</h4>
+                        <p>Αποσυμπιέστε το αρχείο <code>lingua-0.0.3-i386.zip</code>, ανοίξτε τον κατάλογο lingua και κάντε διπλό κλικ στο αρχείο <code>INSTALL</code>. Θα εμφανιστεί ένα αρχείο με το όνομα <code>Lingua</code> και με το εικονίδιο: <img id="lingua-icon" alt="" src="img/lingua-icon.png" /> Κάντε διπλό κλικ σε αυτό το αρχείο για να τρέξετε την εφαρμογή ή δώστε σε ένα τερματικό:</p>
+                        <pre>cd <em>κατάλογος_όπου_αποσυμπιέσατε_το_lingua-0.0.3-i386.zip</em>/lingua
+java -jar lingua.jar</pre>
                     </li>
                     
                     <li>
-                        <h3>Εγκατάσταση για όλους τους χρήστες</h3>
+                        <h4>Εγκατάσταση για όλους τους χρήστες</h4>
                         <p>Για τη μεταγλώττιση της εφαρμογής χρειάζονται οι εξής εφαρμογές και βιβλιοθήκες:</p>
                         <ul>
                             <li><p>OpenJDK <code>&ge;6u10</code></p></li>
@@ -143,11 +153,15 @@
                         
                         <p>Και εκτελούμε τις παρακάτω εντολές σε ένα τερματικό:</p>
                         <pre>cd ~
-wget https://github.com/downloads/cyberpython/lingua/lingua-src.tar.gz
-tar -xvf lingua-src.tar.gz
-cd lingua
+wget https://github.com/downloads/cyberpython/lingua/lingua-0.0.3.tar.gz
+tar -xvf lingua-0.0.3.tar.gz
+cd lingua-0.0.3
 make
 sudo make install</pre>
+
+                        <p>Τρέχουμε την εφαρμογή από το μενού <code>Εκπαίδευση -> Lingua</code> ή δίνοντας σε τερματικό:</p>
+                        
+                        <pre>lingua</pre>
                         
                         <p>Για απεγκατάσταση της εφαρμογής από το σύστημα δίνουμε:</p>
                         

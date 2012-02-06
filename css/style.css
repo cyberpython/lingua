@@ -15,8 +15,12 @@ body{
     max-width: 760px;
 }
 
-h1, h2, h3, h4, h5, h6{
+h1, h2, h3, h5, h6{
     font-weight: normal;
+}
+
+h4{
+    font-weight: bold;
 }
 
 section{

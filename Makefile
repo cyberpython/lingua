@@ -32,7 +32,7 @@ distclean:
 	rm -rf dist build
 	
 uninstall: 
-	rm -r $(DESTDIR)/usr/local/lingua
+	rm -rf $(DESTDIR)/usr/local/lingua
 	rm $(DESTDIR)/usr/share/icons/hicolor/scalable/apps/lingua.svg
 	rm $(DESTDIR)/usr/share/applications/lingua.desktop
 	

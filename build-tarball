@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Usage : ./build-tarball <version>
+#   e.g.: ./build-tarball 0.0.2
+
 #*
 #*  The MIT License
 #* 
@@ -24,43 +27,45 @@
 #*  THE SOFTWARE.
 #*
 
-if [ -d binaries/lingua ]
+TARGET_DIR="lingua-$1"
+
+if [ -d binaries/$TARGET_DIR ]
 then
-    rm -rf binaries/lingua
+    rm -rf binaries/$TARGET_DIR
 fi
 
-mkdir -p binaries/lingua
-cp -R glossa-interpreter binaries/lingua
-cp -R help binaries/lingua
-cp -R java-gnome binaries/lingua
-cp -R lib-docs binaries/lingua
-cp -R misc binaries/lingua
-cp -R nbproject binaries/lingua
-cp -R sourceview-files binaries/lingua
-cp -R src binaries/lingua
-cp AUTHORS binaries/lingua/AUTHORS
-cp build.xml binaries/lingua/build.xml
-cp build-all binaries/lingua/build-all
-cp build-tarball binaries/lingua/build-tarball
-cp COPYING binaries/lingua/COPYING
-cp Makefile binaries/lingua/Makefile
-cp manifest.mf binaries/lingua/manifest.mf
-cp manifest-libs binaries/lingua/manifest-libs
-cp README.md binaries/lingua/README.md
+mkdir -p binaries/$TARGET_DIR
+cp -R glossa-interpreter binaries/$TARGET_DIR
+cp -R help binaries/$TARGET_DIR
+cp -R java-gnome binaries/$TARGET_DIR
+cp -R lib-docs binaries/$TARGET_DIR
+cp -R misc binaries/$TARGET_DIR
+cp -R nbproject binaries/$TARGET_DIR
+cp -R sourceview-files binaries/$TARGET_DIR
+cp -R src binaries/$TARGET_DIR
+cp AUTHORS binaries/$TARGET_DIR/AUTHORS
+cp build.xml binaries/$TARGET_DIR/build.xml
+cp build-all binaries/$TARGET_DIR/build-all
+cp build-tarball binaries/$TARGET_DIR/build-tarball
+cp COPYING binaries/$TARGET_DIR/COPYING
+cp Makefile binaries/$TARGET_DIR/Makefile
+cp manifest.mf binaries/$TARGET_DIR/manifest.mf
+cp manifest-libs binaries/$TARGET_DIR/manifest-libs
+cp README.md binaries/$TARGET_DIR/README.md
 
-if [ -d binaries/lingua/glossa-interpreter/build ]
+if [ -d binaries/$TARGET_DIR/glossa-interpreter/build ]
 then
-    rm -rf binaries/lingua/glossa-interpreter/build
+    rm -rf binaries/$TARGET_DIR/glossa-interpreter/build
 fi
 
-if [ -d binaries/lingua/glossa-interpreter/dist ]
+if [ -d binaries/$TARGET_DIR/glossa-interpreter/dist ]
 then
-    rm -rf binaries/lingua/glossa-interpreter/dist
+    rm -rf binaries/$TARGET_DIR/glossa-interpreter/dist
 fi
 
-if [ -d binaries/lingua/java-gnome/tmp ]
+if [ -d binaries/$TARGET_DIR/java-gnome/tmp ]
 then
-    rm -rf binaries/lingua/java-gnome/tmp
+    rm -rf binaries/$TARGET_DIR/java-gnome/tmp
 fi
 
 cd binaries
@@ -70,9 +75,9 @@ then
     rm -f lingua-$1-src.tar.gz
 fi
 
-tar -cvzf lingua-$1-src.tar.gz lingua
+tar -cvzf lingua-$1.tar.gz $TARGET_DIR
 
-rm -rf lingua
+rm -rf $TARGET_DIR
 
 if [ $# -gt 0 ]
 then
@@ -82,7 +87,7 @@ then
         rm -f lingua-src.tgz
     fi
 
-    cp lingua-$1-src.tar.gz lingua-src.tar.gz
+    cp lingua-$1.tar.gz lingua-src.tar.gz
 
 fi
 

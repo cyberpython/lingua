@@ -59,6 +59,7 @@ public class PrintAction extends Action {
                 try {
                     File path = new File(this.getClass().getProtectionDomain().getCodeSource().getLocation().toURI().getPath()).getParentFile();
                     File tmpFile = File.createTempFile("lingua", ".gls");
+                    tmpFile.deleteOnExit();
                     BufferedWriter out = new BufferedWriter(new FileWriter(tmpFile));
                     out.write(Editor.getInstance().getBuffer().getText());
                     out.flush();

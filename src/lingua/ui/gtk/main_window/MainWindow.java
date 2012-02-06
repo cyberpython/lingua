@@ -300,6 +300,7 @@ public class MainWindow extends Window implements InterpreterListener{
         File tmpFile = null;
         try {
             tmpFile = File.createTempFile(Editor.getInstance().getBuffer().getDocumentTitle(), ".gls");
+            tmpFile.deleteOnExit();
             OutputStreamWriter w = new OutputStreamWriter(new FileOutputStream(tmpFile), "UTF-8");
             BufferedWriter bw = new BufferedWriter(w);
             String text = Editor.getInstance().getBuffer().getText();

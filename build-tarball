@@ -45,7 +45,6 @@ cp -R src binaries/$TARGET_DIR
 cp AUTHORS binaries/$TARGET_DIR/AUTHORS
 cp build.xml binaries/$TARGET_DIR/build.xml
 cp build-all binaries/$TARGET_DIR/build-all
-cp build-binary binaries/$TARGET_DIR/build-binary
 cp build-tarball binaries/$TARGET_DIR/build-tarball
 cp COPYING binaries/$TARGET_DIR/COPYING
 cp Makefile binaries/$TARGET_DIR/Makefile

@@ -33,8 +33,10 @@ distclean:
 	
 uninstall: 
 	rm -rf $(DESTDIR)/usr/local/lingua
+	rm -rf $(DESTDIR)/usr/share/doc/lingua
 	rm $(DESTDIR)/usr/share/icons/hicolor/scalable/apps/lingua.svg
 	rm $(DESTDIR)/usr/share/applications/lingua.desktop
+	rm $(DESTDIR)/usr/bin/lingua
 	
 install:
 	mkdir -p $(DESTDIR)/usr/local/lingua
@@ -42,25 +44,15 @@ install:
 	mkdir -p $(DESTDIR)/usr/share/gtksourceview-3.0/styles
 	mkdir -p $(DESTDIR)/usr/share/icons/hicolor/scalable/apps
 	mkdir -p $(DESTDIR)/usr/share/applications
+	mkdir -p $(DESTDIR)/usr/share/doc/lingua
 	cp dist/lingua.jar $(DESTDIR)/usr/local/lingua/lingua.jar
-	cp dist/source_printer.py $(DESTDIR)/usr/local/lingua/source_printer.py
+	cp misc/source_printer.py $(DESTDIR)/usr/local/lingua/source_printer.py
 	cp -R dist/lib $(DESTDIR)/usr/local/lingua
-	cp -R dist/help $(DESTDIR)/usr/local/lingua
-	cp dist/lingua-icon.svg $(DESTDIR)/usr/share/icons/hicolor/scalable/apps/lingua.svg
-	cp dist/glossa.lang $(DESTDIR)/usr/share/gtksourceview-3.0/language-specs/glossa.lang
-	cp dist/glossa.xml $(DESTDIR)/usr/share/gtksourceview-3.0/styles/glossa.xml
-	touch $(DESTDIR)/usr/share/applications/lingua.desktop
-	echo "[Desktop Entry]" >> $(DESTDIR)/usr/share/applications/lingua.desktop
-	echo "Name=Lingua" >> $(DESTDIR)/usr/share/applications/lingua.desktop
-	echo "GenericName=Περιβάλλον Ανάπτυξης Για Τη ΓΛΩΣΣΑ" >> $(DESTDIR)/usr/share/applications/lingua.desktop
-	echo "Comment=Γράψτε και εκτελέστε προγράμματα στη ΓΛΩΣΣΑ" >> $(DESTDIR)/usr/share/applications/lingua.desktop
-	echo "Terminal=false" >> $(DESTDIR)/usr/share/applications/lingua.desktop
-	echo "Type=Application" >> $(DESTDIR)/usr/share/applications/lingua.desktop
-	echo "Categories=Education;" >> $(DESTDIR)/usr/share/applications/lingua.desktop
-	echo "StartupNotify=true" >> $(DESTDIR)/usr/share/applications/lingua.desktop
-	echo "MimeType=text/glossa;" >> $(DESTDIR)/usr/share/applications/lingua.desktop
-	echo "Exec=$(DESTDIR)/usr/bin/lingua" >> $(DESTDIR)/usr/share/applications/lingua.desktop
-	echo "Icon=lingua" >> $(DESTDIR)/usr/share/applications/lingua.desktop
+	cp -R help $(DESTDIR)/usr/share/doc/lingua
+	cp misc/lingua-icon.svg $(DESTDIR)/usr/share/icons/hicolor/scalable/apps/lingua.svg
+	cp sourceview-files/glossa.lang $(DESTDIR)/usr/share/gtksourceview-3.0/language-specs/glossa.lang
+	cp sourceview-files/glossa.xml $(DESTDIR)/usr/share/gtksourceview-3.0/styles/glossa.xml
+	cp misc/lingua.desktop $(DESTDIR)/usr/share/applications/lingua.desktop
 	chmod ugo+x $(DESTDIR)/usr/share/applications/lingua.desktop
 	touch $(DESTDIR)/usr/bin/lingua
 	echo "#!/bin/sh" >> $(DESTDIR)/usr/bin/lingua

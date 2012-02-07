@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Lingua
+GenericName=Περιβάλλον Ανάπτυξης Για Τη ΓΛΩΣΣΑ
+Comment=Γράψτε και εκτελέστε προγράμματα στη ΓΛΩΣΣΑ
+Terminal=false
+Type=Application
+Categories=Education;
+StartupNotify=true
+MimeType=text/glossa;
+Exec=lingua
+Icon=lingua

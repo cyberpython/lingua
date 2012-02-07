@@ -55,11 +55,7 @@ public class ShowHelpAction extends Action {
                 ActionIcon.HELP_CONTENTS, new Activate() {
 
             public void onActivate(Action action) {
-                try {
-                    MiscUtils.xdgOpenFile(new File(new File(this.getClass().getProtectionDomain().getCodeSource().getLocation().toURI().getPath()).getParentFile().getAbsolutePath() + "/help/index.html"));
-                } catch (URISyntaxException e) {
-                    e.printStackTrace();
-                }
+                MiscUtils.xdgOpenFile(new File("/usr/share/doc/lingua/help/index.html"));
             }
         });
         setAccelerator(MainWindow.getAcceleratorGroup(), Keyval.F1, ModifierType.NONE);

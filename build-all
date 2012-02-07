@@ -46,28 +46,6 @@ then
     cp java-gnome/tmp/libgtkjni-4.1.2-dev.so lib/libgtkjni-4.1.2-dev.so
 fi
 
-if [ ! -f lib/glossa-interpreter.jar ]
-then
-    
-    if [ ! -d glossa-interpreter ]
-    then
-        git clone git://github.com/cyberpython/glossa-interpreter.git
-    fi
-    
-    cd glossa-interpreter
-    
-    rm -rf build
-    rm -rf dist
-
-    ./build.sh
-
-    cd ../
-    
-    cp glossa-interpreter/dist/glossa-interpreter.jar lib/glossa-interpreter.jar
-    cp glossa-interpreter/dist/lib/antlr-3.2.jar lib/antlr-3.2.jar
-    cp glossa-interpreter/dist/lib/jopt-simple-3.2.jar lib/jopt-simple-3.2.jar
-fi
-
 ant clean jar
 
 mkdir -p dist

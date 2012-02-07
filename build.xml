@@ -13,23 +13,7 @@
     
     <target name="-post-jar">
         <chmod file="dist/lingua.jar" perm="ugo+x"/>
-        <copy todir="dist/help">
-    		<fileset dir="help"/>
-  	    </copy>
-        <copy todir="dist">
-    		<fileset dir="misc"/>
-  	    </copy>
-  	    <chmod file="dist/INSTALL" perm="ugo+x"/>
-  	    <copy todir="dist">
-    		<fileset dir="sourceview-files"/>
-  	    </copy>
   	    <delete file="dist/README.TXT"/>
-  	    <copy file="README.md" tofile="dist/README"/>
-  	    <copy file="COPYING" tofile="dist/COPYING"/>
-  	    <copy file="AUTHORS" tofile="dist/AUTHORS"/>
-  	    <copy todir="dist/lib">
-    		<fileset dir="lib-docs"/>
-  	    </copy>
     </target>
     
     <!--

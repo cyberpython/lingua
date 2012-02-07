@@ -24,17 +24,6 @@ Lingua στα Λατινικά σημαίνει «γλώσσα». Πρόκειτ
 Εγκατάσταση
 -----------
 
-### Εγκατάσταση μόνο για τον τρέχοντα χρήστη
-
-Πρέπει να έχετε εγκατεστημένο το OpenJDK JRE <code>&ge;6u10</code> και το GTK <code>&ge;3.0.4</code>.
-
-Αποσυμπιέστε το αρχείο lingua.zip, ανοίξτε τον κατάλογο lingua και κάντε διπλό κλικ στο αρχείο `INSTALL` και επιλέξετε `Εκτέλεση`. Θα εμφανιστεί ένα αρχείο με το όνομα `Lingua`. Κάντε διπλό κλικ σε αυτό το αρχείο για να τρέξετε την εφαρμογή ή δώστε σε ένα τερματικό:
-
-    cd _κατάλογος_όπου_αποσυμπιέσατε_το_lingua.zip_/lingua
-    java -jar lingua.jar
-
-### Εγκατάσταση για όλους τους χρήστες
-
 Για τη μεταγλώττιση της εφαρμογής χρειάζονται οι εξής εφαρμογές και βιβλιοθήκες:
 
 * OpenJDK JDK ≥6u10
@@ -61,13 +50,21 @@ Lingua στα Λατινικά σημαίνει «γλώσσα». Πρόκειτ
 
 * librsvg ≥ 2.32.0
 
-
-Εκτελούμε τις παρακάτω εντολές σε ένα τερματικό:
+Πρώτα πρέπει να εγκαταστήσουμε το διερμηνευτή:
 
     cd ~
-    wget https://github.com/downloads/cyberpython/lingua/lingua-src.tar.gz
-    tar -xvf lingua-src.tar.gz
-    cd lingua
+    wget https://github.com/downloads/cyberpython/glossa-interpreter/glossa-interpreter-1.0.1.tar.gz
+    tar -xvf glossa-interpreter-1.0.1.tar.gz
+    cd glossa-interpreter-1.0.1
+    make
+    sudo make install
+
+Έπειτα εγκαθιστούμε την εφαρμογή, εκτελώντας τις παρακάτω εντολές σε ένα τερματικό:
+
+    cd ~
+    wget https://github.com/downloads/cyberpython/lingua/lingua-0.0.4.tar.gz
+    tar -xvf lingua-0.0.4.tar.gz
+    cd lingua-0.0.4
     make
     sudo make install
 

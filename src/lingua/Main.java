@@ -23,6 +23,7 @@
  */
 package lingua;
 
+import java.io.File;
 import lingua.ui.gtk.main_window.MainWindow;
 import lingua.ui.gtk.main_window.widgets.Editor;
 import org.gnome.glib.FatalError;
@@ -57,6 +58,12 @@ public class Main {
 
         w.showAll();
         Editor.getInstance().grabFocus();
+        if(args.length>0){
+            File f = new File(args[0]);
+            if(f.isFile()){
+                Editor.getInstance().newBufferFromFile(f);
+            }
+        }
 
         Gtk.main();
     }

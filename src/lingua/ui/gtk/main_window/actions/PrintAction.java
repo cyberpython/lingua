@@ -65,12 +65,12 @@ public class PrintAction extends Action {
                     out.flush();
                     out.close();
                     Preferences prefs = Preferences.getInstance();
-                    String scheme = prefs.getEditorScheme();
+                    String scheme = "glossa";//prefs.getEditorScheme();
                     String[] cmdarr = {
                         "/usr/bin/python",
                         path.getAbsolutePath()+"/source_printer.py",
                         "glossa",
-                        scheme==null?"glossa":scheme,
+                        scheme,//scheme==null?"glossa":scheme,
                         prefs.getPangoCompatibleFontDescriptionString(),
                         tmpFile.getAbsolutePath()
                     };

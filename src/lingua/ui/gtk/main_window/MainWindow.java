@@ -296,31 +296,13 @@ public class MainWindow extends Window implements InterpreterListener{
     public void stackPushed(SymbolTable newSymbolTable) {
     }
 
+    
+
     public void runCurrentFile() {
-        File tmpFile = null;
-        try {
-            tmpFile = File.createTempFile(Editor.getInstance().getBuffer().getDocumentTitle(), ".gls");
-            tmpFile.deleteOnExit();
-            OutputStreamWriter w = new OutputStreamWriter(new FileOutputStream(tmpFile), "UTF-8");
-            BufferedWriter bw = new BufferedWriter(w);
-            String text = Editor.getInstance().getBuffer().getText();
-            if (!text.endsWith("\n")) {
-                text += "\n";
-            }
-            bw.write(text);
-
-            bw.flush();
-            bw.close();
-            w.close();
-        } catch (IOException ioe) {
+        String text = Editor.getInstance().getBuffer().getText();
+        if (!text.endsWith("\n")) {
+            text += "\n";
         }
-        if (tmpFile != null) {
-            runInterpreter(tmpFile);
-        }
-    }
-
-    public void runInterpreter(File f) {
-
         InterpreterMessagesListView interpreterMessagesListView = bottomPane.getMessagesListView();
         RuntimeWindow runtimeWindow = RuntimeWindow.getInstance();
 
@@ -347,7 +329,7 @@ public class MainWindow extends Window implements InterpreterListener{
         } else {
             in = runtimeWindow.getInputStream();
         }
-        interpreter = new Interpreter(f, System.out, System.err, runtimeWindow.getOut(), runtimeWindow.getErr(), in);
+        interpreter = new Interpreter(text, System.out, System.err, runtimeWindow.getOut(), runtimeWindow.getErr(), in);
         interpreter.addListener(this);
         interpreterMessagesListView.setInterpreter(interpreter);
         boolean success = interpreter.parseAndAnalyzeSemantics(true);

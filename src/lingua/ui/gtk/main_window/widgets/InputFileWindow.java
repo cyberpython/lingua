@@ -23,7 +23,7 @@
  */
 package lingua.ui.gtk.main_window.widgets;
 
-import glossa.utils.CharsetDetector;
+import glossa.ui.cli.CharsetDetector;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;

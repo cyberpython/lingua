@@ -53,7 +53,7 @@
 
   <!-- Constants -->
   <style name="def:constant"                foreground="magenta"/>
-  <style name="def:special-char"            foreground="violet"/>
+  <style name="def:special-char"            foreground="##FFA2F6" />
   <style name="def:string"                  foreground="#650067"/>
   <style name="def:decimal"                 foreground="#016800"/>
   <style name="def:floating-point"          foreground="#016800"/>
@@ -62,8 +62,9 @@
   <!-- Identifiers -->
   <style name="def:identifier"              foreground="cyan"/>
 
-  <!-- Statements -->
-  <style name="def:statement"               foreground="bordeaux" bold="true"/>
+  <!-- Operators -->
+  <style name="def:operator"               foreground="bordeaux"/>
+  <style name="def:statement"               foreground="#002967" bold="true"/>
 
   <!-- Types -->
   <style name="def:type"                    foreground="#002967" bold="true"/>
@@ -74,27 +75,6 @@
   <style name="def:error"                   background="red" bold="true"/>
   <style name="def:note"                    foreground="blue" background="yellow" bold="true"/>
   <style name="def:underlined"              italic="true" underline="true"/>
-
-  <!-- Language specific styles -->
-  <style name="diff:added-line"             foreground="#008B8B"/>
-  <style name="diff:removed-line"           foreground="#6A5ACD"/>
-  <style name="diff:changed-line"           use-style="def:preprocessor"/>
-  <style name="diff:special-case"           use-style="def:constant"/>
-  <style name="diff:location"               use-style="def:statement"/>
-  <style name="diff:diff-file"              use-style="def:type"/>
-
-  <style name="xml:tags"                    foreground="cyan"/>
-  <style name="xml:attribute-name"          foreground="violet"/>
-  <style name="xml:namespace"               foreground="green" bold="true"/>
-
-  <style name="js:object"                   foreground="#2E8B57" bold="true"/>
-  <style name="js:constructors"             foreground="#008B8B"/>
-
-  <style name="latex:display-math"          foreground="#6A5ACD"/>
-  <style name="latex:command"               foreground="#2E8B57" bold="true"/>
-  <style name="latex:include"               use-style="def:preprocessor"/>
-
-  <style name="sh:variable"                 foreground="#6A5ACD"/>
 
   <!-- legacy styles for old lang files -->
   <style name="Others"                      foreground="#2E8B57" bold="true"/>

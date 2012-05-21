@@ -20,9 +20,9 @@
         <style id="keyword"           _name="Keyword"               map-to="def:keyword"/>
         <style id="type"              _name="Data Type"             map-to="def:type"/>
         <style id="boolean"           _name="Boolean value"         map-to="def:boolean"/>
-<!--        <style id="symbol"            _name="Symbol"                map-to="def:symbol"/> -->
         <style id="operator"          _name="Operator"              map-to="def:operator"/>
-<!--        <style id="identifier"        _name="identifier"            map-to="def:identifier"/> -->
+        <style id="special-char"      _name="Special charactes"     map-to="def:special-char"/>
+        <style id="assignment-operator"          _name="Assignment Operator"              map-to="def:statement"/>
     </styles>
  
     <default-regex-options case-sensitive="false"/>
@@ -64,10 +64,7 @@
                 <context id="keywords" style-ref="keyword">
                     <match extended="true">
                         (?&lt;![0-9a-zA-Zα-ωΑ-ΩάέήίύόώΆΈΉΊΎΌΏϊϋΪΫΐΰςΣ_])
-                        ([Ήή] | 
-                         [Κκ][Αα][Ιι] | 
-                         [ΟοΌό][Χχ][Ιι] | 
-                         [Ππ][Ρρ][ΟοΌό][Γγ][Ρρ][Αα][Μμ][Μμ][Αα] | 
+                        ([Ππ][Ρρ][ΟοΌό][Γγ][Ρρ][Αα][Μμ][Μμ][Αα] | 
                          [Σσ][Ττ][Αα][Θθ][Εε][Ρρ][ΕεΈέ][ΣΣς] | 
                          [Μμ][Εε][Ττ][Αα][Ββ][Λλ][Ηη][Ττ][ΕεΈέ][ΣΣς] | 
                          [Αα][Ρρ][Χχ][ΗηΉή] | 
@@ -124,17 +121,44 @@
                     </match>
                 </context>
                 
+                <context id="assignment-operator" style-ref="assignment-operator">
+                    <match extended="true">
+                        (?&lt;![0-9a-zA-Zα-ωΑ-ΩάέήίύόώΆΈΉΊΎΌΏϊϋΪΫΐΰςΣ_])
+                    	(&lt; \- |
+                    	 \← )
+                    	(?![0-9a-zA-Zα-ωΑ-ΩάέήίύόώΆΈΉΊΎΌΏϊϋΪΫΐΰςΣ_])
+                    </match>                                 
+                </context>
+                
                 <context id="operator" style-ref="operator">
                     <match extended="true">
                         (?&lt;![0-9a-zA-Zα-ωΑ-ΩάέήίύόώΆΈΉΊΎΌΏϊϋΪΫΐΰςΣ_])
-                    	([Dd][Ii][Vv] | 
-                         [Mm][Oo][Dd] |
-                         &lt;- )
+                    	([Ήή] | 
+                         [Κκ][Αα][Ιι] | 
+                         [ΟοΌό][Χχ][Ιι] |
+                         [Dd][Ii][Vv] | 
+                         [Mm][Oo][Dd])
                     	(?![0-9a-zA-Zα-ωΑ-ΩάέήίύόώΆΈΉΊΎΌΏϊϋΪΫΐΰςΣ_]) |
                     	(\+ |
                          \- |
                          \* |
-                         \/ )
+                         \/ |
+                         &lt; |
+                         &gt; |
+                         \= )
+                    </match>                                 
+                </context>
+                
+                <context id="special-char" style-ref="special-char">
+                    <match extended="true">
+                        (\, |
+                         \: |
+                         \[ |
+                         \] |
+                         &amp; |
+                         \.\. |
+                         \( |
+                         \) )
                     </match>                                 
                 </context>
                 

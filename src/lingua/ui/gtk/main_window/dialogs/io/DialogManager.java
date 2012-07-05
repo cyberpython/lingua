@@ -25,6 +25,7 @@
 package lingua.ui.gtk.main_window.dialogs.io;
 
 import java.io.File;
+import lingua.ui.gtk.main_window.dialogs.filters.FileFilterWithExtension;
 import lingua.ui.gtk.main_window.dialogs.messages.FileExistsMessageDialog;
 import lingua.ui.gtk.main_window.dialogs.messages.FileModifiedMessageDialog;
 import lingua.ui.gtk.main_window.dialogs.messages.InterpreterStillRunningDialog;
@@ -67,6 +68,11 @@ public class DialogManager {
         saveDialog.hide();
         String fname = saveDialog.getFilename();
         if ((response == ResponseType.OK) &&(fname!=null)){
+            FileFilterWithExtension f = saveDialog.getFilter();
+            String extension = f.getExtension();
+            if(!fname.endsWith(extension)){
+                fname += extension;
+            }
             File target = new File(fname);
             if (target.exists()) {
                 if (confirmOverwriteFile(target)) {

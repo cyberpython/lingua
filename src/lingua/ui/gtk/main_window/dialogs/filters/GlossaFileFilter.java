@@ -31,12 +31,16 @@ import org.gnome.gtk.FileFilter;
  *
  * @author Georgios Migdos <cyberpython@gmail.com>
  */
-public class GlossaFileFilter extends FileFilter{
+public class GlossaFileFilter extends FileFilterWithExtension{
 
     public GlossaFileFilter() {
         setName(StringResources.getInstance().getString("glossa_files"));
         addMimeType("text/glossa");
         addPattern("*.gls");
+    }
+    
+    public String getExtension(){
+        return(".gls");
     }
 
 }

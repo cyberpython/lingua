@@ -26,7 +26,7 @@ package lingua.ui.gtk.main_window.dialogs.io;
 
 import lingua.resources.StringResources;
 import lingua.ui.gtk.main_window.MainWindow;
-import org.gnome.gdk.EventCrossing;
+import lingua.ui.gtk.main_window.dialogs.filters.FileFilterWithExtension;
 import org.gnome.gtk.Button;
 import org.gnome.gtk.Dialog;
 import org.gnome.gtk.FileChooserAction;
@@ -35,7 +35,6 @@ import org.gnome.gtk.FileChooserWidget;
 import org.gnome.gtk.FileFilter;
 import org.gnome.gtk.ResponseType;
 import org.gnome.gtk.Stock;
-import org.gnome.gtk.Widget;
 
 /**
  *
@@ -75,12 +74,16 @@ public class SaveDialog extends Dialog{
         chooserWidget.setFilename(filePath+System.getProperty("file.separator")+filename);
     }
 
-    public void addFilter(FileFilter filter){
+    public void addFilter(FileFilterWithExtension filter){
         chooserWidget.addFilter(filter);
     }
 
-    public void setFilter(FileFilter filter){
+    public void setFilter(FileFilterWithExtension filter){
         chooserWidget.setFilter(filter);
+    }
+    
+    public FileFilterWithExtension getFilter(){
+        return (FileFilterWithExtension) chooserWidget.getFilter();
     }
 
 }

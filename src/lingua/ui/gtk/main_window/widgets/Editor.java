@@ -28,12 +28,15 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.nio.charset.Charset;
 import lingua.preferences.Preferences;
 import lingua.ui.gtk.main_window.MainWindow;
+import lingua.ui.gtk.main_window.dialogs.filters.GlossaDiermhneythsFileFilter;
 import lingua.ui.gtk.main_window.dialogs.io.DialogManager;
 import lingua.ui.gtk.main_window.dialogs.io.BufferSaver;
 import lingua.ui.gtk.main_window.dialogs.io.OpenCodeDialog;
@@ -180,12 +183,19 @@ public class Editor extends SourceView implements BufferSaver{
         boolean modified = buf.getModified();
         if (modified || saveAs) {
             File target = buf.getSrc();
+            String glossaDiermhneythsExtension = new GlossaDiermhneythsFileFilter().getExtension();
             if ((target == null) || saveAs) { // We have a new file
                 String filename = DialogManager.showSaveDialog(SaveCodeDialog.getInstance(), buf.getSrc(), buf.getDocumentTitle());
                 if (filename != null) {
                     target = new File(filename);
+                    Charset c;
+                    if(filename.endsWith(glossaDiermhneythsExtension)){
+                        c = Charset.forName("windows-1253");
+                    }else{
+                        c = Charset.forName("UTF-8");
+                    }
                     try {
-                        BufferedWriter out = new BufferedWriter(new FileWriter(target));
+                        BufferedWriter out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(target), c));
                         out.write(buf.getText());
                         out.flush();
                         out.close();
@@ -199,8 +209,14 @@ public class Editor extends SourceView implements BufferSaver{
                     return false;
                 }
             } else { // We are editing an existing file
+                Charset c;
+                if(target.getAbsolutePath().endsWith(glossaDiermhneythsExtension)){
+                    c = Charset.forName("windows-1253");
+                }else{
+                    c = Charset.forName("UTF-8");
+                }
                 try {
-                    FileWriter out = new FileWriter(target);
+                    BufferedWriter out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(target), c));
                     out.write(buf.getText());
                     out.flush();
                     out.close();

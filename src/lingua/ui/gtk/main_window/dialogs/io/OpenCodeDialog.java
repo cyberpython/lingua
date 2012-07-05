@@ -28,6 +28,7 @@ import lingua.ui.gtk.main_window.dialogs.filters.AllFilesFileFilter;
 import lingua.ui.gtk.main_window.dialogs.filters.GlossaFileFilter;
 import lingua.resources.StringResources;
 import lingua.ui.gtk.main_window.MainWindow;
+import lingua.ui.gtk.main_window.dialogs.filters.GlossaDiermhneythsFileFilter;
 import org.gnome.gtk.FileChooserAction;
 import org.gnome.gtk.FileChooserDialog;
 
@@ -49,6 +50,7 @@ public class OpenCodeDialog extends FileChooserDialog{
     private OpenCodeDialog() {
         super(StringResources.getInstance().getString("open_file"), MainWindow.getInstance(), FileChooserAction.OPEN);
         this.addFilter(new GlossaFileFilter());
+        this.addFilter(new GlossaDiermhneythsFileFilter());
         this.addFilter(new AllFilesFileFilter());
         this.setFilter(new GlossaFileFilter());
         this.setModal(true);

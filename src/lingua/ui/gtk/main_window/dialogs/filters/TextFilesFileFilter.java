@@ -31,12 +31,17 @@ import org.gnome.gtk.FileFilter;
  *
  * @author Georgios Migdos <cyberpython@gmail.com>
  */
-public class TextFilesFileFilter extends FileFilter{
+public class TextFilesFileFilter extends FileFilterWithExtension{
 
     public TextFilesFileFilter() {
         setName(StringResources.getInstance().getString("txt_files"));
         addMimeType("text/plain");
         addPattern("*.txt");
+    }
+
+    @Override
+    public String getExtension() {
+        return ".txt";
     }
 
 }

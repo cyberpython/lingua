@@ -24,7 +24,10 @@
 
 package lingua.ui.gtk.main_window.dialogs.io;
 
+import lingua.ui.gtk.main_window.dialogs.filters.FileFilterWithExtension;
+import lingua.ui.gtk.main_window.dialogs.filters.GlossaDiermhneythsFileFilter;
 import lingua.ui.gtk.main_window.dialogs.filters.GlossaFileFilter;
+import org.gnome.gtk.FileFilter;
 
 /**
  *
@@ -42,16 +45,23 @@ public class SaveCodeDialog extends SaveDialog{
     }
 
     private SaveCodeDialog() {
-        GlossaFileFilter filter = new GlossaFileFilter();
+        FileFilterWithExtension filter = new GlossaFileFilter();
         addFilter(filter);
         setFilter(filter);
+        filter = new GlossaDiermhneythsFileFilter();
+        addFilter(filter);
     }
 
     @Override
     public String getFilename() {
         String result = super.getFilename();
-        if( (result!=null) &&!result.endsWith(".gls")){
-            result = result.concat(".gls");
+        if(result!=null){
+           FileFilter f = getFilter();
+           if(new GlossaFileFilter().equals(f) &&!result.endsWith(".gls")){
+               result = result.concat(".gls");
+           }else if(new GlossaDiermhneythsFileFilter().equals(f) &&!result.endsWith(".γλώσσα")){
+               result = result.concat(".γλώσσα");
+           }
         }
         return result;
     }

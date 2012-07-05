@@ -101,6 +101,7 @@ public class StringResources {
         strings.put("save_file", _("Αποθήκευση αρχείου"));
         strings.put("open_file", _("Άνοιγμα αρχείου"));
         strings.put("glossa_files", _("Αρχεία κώδικα της ΓΛΩΣΣΑΣ (*.gls)"));
+        strings.put("glossa_diermhneyths_files", _("Αρχεία του ΔΙΕΡΜΗΝΕΥΤΗ(*.γλώσσα)"));
         strings.put("all_files", _("Όλα τα αρχεία"));
         strings.put("html_files", _("Αρχεία HTML(*.html)"));
         strings.put("txt_files", _("Αρχεία απλού κειμένου(*.txt)"));

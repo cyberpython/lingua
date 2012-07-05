@@ -30,11 +30,18 @@ import org.gnome.gtk.FileFilter;
  *
  * @author Georgios Migdos <cyberpython@gmail.com>
  */
-public class HTMLFileFilter extends FileFilter {
+public class HTMLFileFilter extends FileFilterWithExtension {
 
     public HTMLFileFilter() {
         setName(StringResources.getInstance().getString("html_files"));
         addMimeType("text/html");
         addPattern("*.html");
     }
+
+    @Override
+    public String getExtension() {
+        return ".html";
+    }
+    
+    
 }

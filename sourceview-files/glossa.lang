@@ -15,6 +15,7 @@
     <styles>
         <style id="comment"           _name="Comment"               map-to="def:comment"/>
         <style id="string"            _name="String"                map-to="def:string"/>
+        <style id="string2"           _name="String2"               map-to="def:string"/>
         <style id="floating-point"    _name="Floating point number" map-to="def:floating-point"/>
         <style id="decimal"           _name="Decimal number"        map-to="def:decimal"/>
         <style id="keyword"           _name="Keyword"               map-to="def:keyword"/>
@@ -40,6 +41,11 @@
                 <context id="string" style-ref="string" end-at-line-end="true">
                     <start>L?'</start>
                     <end>'</end>                    
+                </context>
+                
+                <context id="string2" style-ref="string" end-at-line-end="true">
+                    <start>L?"</start>
+                    <end>"</end>
                 </context>
 
                 <context id="float" style-ref="floating-point">

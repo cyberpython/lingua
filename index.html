@@ -95,13 +95,6 @@
                     <a class="screenshot" href="screenshots/5.png" title="Επιλογή του χρωματικού συνδυασμού του επεξεργαστή κώδικα."><img src="screenshots/5_thumb.png" alt=""/></a>
                 </p>
                 
-                <div id="containingBlock">  
-	                <div class="videoWrapper">
-                        <div>  
-                            <iframe width="640" height="400" src="http://www.youtube.com/embed/uUn_oP47iEI" frameborder="0" allowfullscreen></iframe>
-                        </div>
-	                </div>
-                </div>     
             </section>
             
             <section>
@@ -126,31 +119,32 @@ sudo apt-get install lingua</pre>
                             <li><p>OpenJDK <code>&ge;6u10</code></p></li>
                             <li><p>Git</p></li>
                             <li><p>Ant</p></li>
-                            <li><p>GLib <code>&ge; 2.28.0</code> </p></li>
-                            <li><p>GTK <code>&ge; 3.0.4</code> </p></li>
-                            <li><p>Cairo <code>&ge; 1.10.0</code></p></li>
-                            <li><p>Pango <code>&ge; 1.28.0</code></p></li>
-                            <li><p>gtksourceview <code>&ge; 2.91.9</code></p></li>
-                            <li><p>libnotify <code>&ge; 0.7.0</code></p></li>
-                            <li><p>libunique <code>&ge; 3.0</code></p></li>
-                            <li><p>Enchant <code>&ge; 1.4.2</code></p></li>
-                            <li><p>librsvg <code>&ge; 2.32.0</code></p></li>
+                            <li><p>JUnit</p></li>
+                            <li><p>libglib2.0-dev <code>&ge; 2.28.0</code> </p></li>
+                            <li><p>libgtk-3-dev <code>&ge; 3.0.4</code> </p></li>
+                            <li><p>libcairo-gobject2 <code>&ge; 1.10.0</code></p></li>
+                            <li><p>libpango1.0-dev <code>&ge; 1.28.0</code></p></li>
+                            <li><p>libgtksourceview-3.0-dev <code>&ge; 2.91.9</code></p></li>
+                            <li><p>libnotify-dev <code>&ge; 0.7.0</code></p></li>
+                            <li><p>libunique-3.0-dev <code>&ge; 3.0</code></p></li>
+                            <li><p>libenchant-dev <code>&ge; 1.4.2</code></p></li>
+                            <li><p>librsvg2-dev <code>&ge; 2.32.0</code></p></li>
                         </ul>
                         
                         <p>Πρώτα πρέπει να εγκαταστήσουμε το διερμηνευτή:</p>
                         
                         <pre>cd ~
-wget https://github.com/downloads/cyberpython/glossa-interpreter/glossa-interpreter-1.0.1.tar.gz
-tar -xvf glossa-interpreter-1.0.1.tar.gz
-cd glossa-interpreter-1.0.1
+wget https://github.com/downloads/cyberpython/glossa-interpreter/glossa-interpreter-1.0.4.tar.gz
+tar -xvf glossa-interpreter-1.0.4.tar.gz
+cd glossa-interpreter-1.0.4
 make
 sudo make install</pre>
                         
                         <p>Και εκτελούμε τις παρακάτω εντολές σε ένα τερματικό:</p>
                         <pre>cd ~
-wget https://github.com/downloads/cyberpython/lingua/lingua-0.0.4.tar.gz
-tar -xvf lingua-0.0.4.tar.gz
-cd lingua-0.0.4
+wget https://github.com/downloads/cyberpython/lingua/lingua-0.0.5.tar.gz
+tar -xvf lingua-0.0.5.tar.gz
+cd lingua-0.0.5
 make
 sudo make install</pre>
 

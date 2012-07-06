@@ -32,39 +32,41 @@ Lingua στα Λατινικά σημαίνει «γλώσσα». Πρόκειτ
 
 * Ant
 
-* GLib ≥ 2.28.0
+* JUnit
 
-* GTK ≥ 3.0.4
+* libglib2.0-dev ≥ 2.28.0
 
-* Cairo ≥ 1.10.0
+* libgtk-3-dev ≥ 3.0.4
 
-* Pango ≥ 1.28.0
+* libcairo-gobject2 ≥ 1.10.0
 
-* gtksourceview ≥ 2.91.9
+* libpango1.0-dev ≥ 1.28.0
 
-* libnotify ≥ 0.7.0
+* libgtksourceview-3.0-dev ≥ 2.91.9
 
-* libunique ≥ 3.0
+* libnotify-dev ≥ 0.7.0
 
-* Enchant ≥ 1.4.2
+* libunique-3.0-dev ≥ 3.0
 
-* librsvg ≥ 2.32.0
+* libenchant-dev ≥ 1.4.2
+
+* librsvg2-dev ≥ 2.32.0
 
 Πρώτα πρέπει να εγκαταστήσουμε το διερμηνευτή:
 
     cd ~
-    wget https://github.com/downloads/cyberpython/glossa-interpreter/glossa-interpreter-1.0.1.tar.gz
-    tar -xvf glossa-interpreter-1.0.1.tar.gz
-    cd glossa-interpreter-1.0.1
+    wget https://github.com/downloads/cyberpython/glossa-interpreter/glossa-interpreter-1.0.4.tar.gz
+    tar -xvf glossa-interpreter-1.0.4.tar.gz
+    cd glossa-interpreter-1.0.4
     make
     sudo make install
 
 Έπειτα εγκαθιστούμε την εφαρμογή, εκτελώντας τις παρακάτω εντολές σε ένα τερματικό:
 
     cd ~
-    wget https://github.com/downloads/cyberpython/lingua/lingua-0.0.4.tar.gz
-    tar -xvf lingua-0.0.4.tar.gz
-    cd lingua-0.0.4
+    wget https://github.com/downloads/cyberpython/lingua/lingua-0.0.5.tar.gz
+    tar -xvf lingua-0.0.5.tar.gz
+    cd lingua-0.0.5
     make
     sudo make install
 

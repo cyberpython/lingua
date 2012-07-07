@@ -97,6 +97,9 @@ public class Editor extends SourceView implements BufferSaver{
                 return true;
             }
         });
+        
+        setAutoIndent(true);
+        setInsertSpacesInsteadOfTabs(true);
     }
 
     public void setFont(String fontDescription){

@@ -124,6 +124,9 @@ public class StringResources {
         strings.put("preferences", _("Προτιμήσεις"));
         strings.put("font", _("Γραμματοσειρά"));
         strings.put("editor_scheme", _("Χρώματα επεξεργαστή κώδικα"));
+        
+        strings.put("commands", _("Εντολές"));
+        strings.put("commands_list", _("Λίστα εντολών"));
     }
 
     public static StringResources getInstance(){

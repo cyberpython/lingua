@@ -21,52 +21,41 @@
  *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  *  THE SOFTWARE.
  */
-package lingua.utils;
 
-import java.io.File;
-import lingua.preferences.Preferences;
+package lingua.ui.gtk.main_window.widgets.commandslist;
+
+import lingua.utils.MiscUtils;
 
 /**
  *
- * @author Georgios Migdos <cyberpython@gmail.com>
+ * @author cyberpython
  */
-public class MiscUtils {
+public class CommandsListItemEncapsulatingText extends CommandsListItem{
 
-    /**
-     * Opens a file with the default program using the xdg-open command
-     *
-     * @param f The file to be opened
-     * 
-     */
-    public static void xdgOpenFile(File f) {
-        String CROSS_DESKTOP_OPEN_FILE_COMMAND = "/usr/bin/xdg-open";
-        try {
-            File parentDir = f.getParentFile();
-            String fname = f.getName();
-            String cmd = "/bin/sh " + CROSS_DESKTOP_OPEN_FILE_COMMAND + " " + fname;
-            Runtime rt = Runtime.getRuntime();
-            Process p = rt.exec(cmd, null, parentDir);
-            p.waitFor();
-        } catch (Exception e) {
+    public CommandsListItemEncapsulatingText(String label, String textBefore, String textAfter) {
+        super(label, textBefore, textAfter);
+    }
+
+    @Override
+    public String getText(String encapsulatedText, String indentation, boolean isLineEmpty) {
+        if ("".equals(encapsulatedText) || encapsulatedText == null) {
+            encapsulatedText = " ";
         }
+        return (isLineEmpty?"":("\n"+indentation))+getTextBefore()+"\n"+processEncapsulatedText(encapsulatedText, indentation+MiscUtils.editorTabWidthToTabs()) +indentation+getTextAfter();
     }
     
-    public static boolean isSpaceOrTab(int codePoint){
-        if(Character.isSpaceChar(codePoint)|| ('\t'==codePoint)){
-            return true;
-        }
-        return false;
-    }
-    
-    public static String trimLeadingWhitespace(String s){
-        return s.replaceAll("^\\s+", "");
-    }
-    
-    public static String editorTabWidthToTabs(){
+    private String processEncapsulatedText(String encapsulatedText, String indentation){
         StringBuilder sb = new StringBuilder();
-        for(int i=0; i < Preferences.getInstance().getEditorTabWidth(); i++){
-            sb.append(" ");
+        
+        String lines[] = encapsulatedText.split("\\r?\\n");
+        for (String line : lines) {
+            line = MiscUtils.trimLeadingWhitespace(line);
+            sb.append(indentation);
+            sb.append(line);
+            sb.append("\n");
         }
+        
         return sb.toString();
     }
+    
 }

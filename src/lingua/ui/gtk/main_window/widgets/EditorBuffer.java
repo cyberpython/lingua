@@ -28,7 +28,6 @@ import lingua.ui.gtk.main_window.MainWindow;
 import lingua.ui.gtk.main_window.actions.RedoAction;
 import lingua.ui.gtk.main_window.actions.UndoAction;
 import java.io.File;
-import lingua.preferences.Preferences;
 import lingua.resources.CustomTextTags;
 import lingua.ui.gtk.main_window.actions.CopyAction;
 import lingua.ui.gtk.main_window.actions.CutAction;
@@ -149,7 +148,14 @@ public class EditorBuffer extends SourceBuffer {
 
     public String getDocumentTitle() {
         if (src == null) {
-            return StringResources.getInstance().getString("untitled");
+            TextIter firstLineEnd = getIterStart();
+            firstLineEnd.forwardLine();
+            String firstLine = getText(getIterStart(), firstLineEnd, false).trim().toLowerCase();
+            if(firstLine.startsWith("πρόγραμμα")||firstLine.startsWith("πρoγραμμα")){
+                return firstLine.substring(9).trim();
+            }else{
+                return StringResources.getInstance().getString("untitled");
+            }
         }
         return src.getName();
     }

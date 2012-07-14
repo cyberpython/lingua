@@ -32,15 +32,8 @@ import lingua.ui.gtk.main_window.toolbars.MainToolbar;
 import lingua.ui.gtk.main_window.widgets.BottomPane;
 import lingua.ui.gtk.main_window.widgets.EditorContainer;
 import lingua.ui.gtk.main_window.widgets.MainWindowStatusbar;
-import java.io.BufferedInputStream;
-import java.io.BufferedWriter;
 import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.InputStream;
-import java.io.OutputStreamWriter;
 import lingua.preferences.Preferences;
 import lingua.resources.IconResources;
 import lingua.ui.gtk.main_window.actions.RunAction;
@@ -48,13 +41,8 @@ import lingua.ui.gtk.main_window.actions.StopAction;
 import lingua.ui.gtk.main_window.actions.ToggleStepByStepAction;
 import lingua.ui.gtk.main_window.actions.ToggleUseInputFileAction;
 import lingua.ui.gtk.main_window.dialogs.io.DialogManager;
-import lingua.ui.gtk.main_window.widgets.Editor;
-import lingua.ui.gtk.main_window.widgets.EditorBuffer;
-import lingua.ui.gtk.main_window.widgets.InputFileWindow;
-import lingua.ui.gtk.main_window.widgets.InterpreterMessagesListView;
-import lingua.ui.gtk.main_window.widgets.RuntimeWindow;
+import lingua.ui.gtk.main_window.widgets.*;
 import org.gnome.gdk.Event;
-import org.gnome.gdk.Pixbuf;
 import org.gnome.gtk.AcceleratorGroup;
 import org.gnome.gtk.Box;
 import org.gnome.gtk.Gtk;
@@ -73,11 +61,13 @@ public class MainWindow extends Window implements InterpreterListener{
     private static MainWindow instance;
     private final Box mainContainer;
     private final BottomPane bottomPane;
+    private final SidePane sidePane;
     private final MainWindowStatusbar statusBar;
     private final MenuBar mainMenubar;
     private final Toolbar mainToolbar;
     private final EditorContainer editorContainer;
     private final Paned verticalPaned;
+    private final Paned horizontalPaned;
     private static AcceleratorGroup accelGroupInstance;
 
 
@@ -108,10 +98,18 @@ public class MainWindow extends Window implements InterpreterListener{
         mainContainer.packStart(mainToolbar, false, true, 0);
 
         bottomPane = new BottomPane();
+        sidePane = new SidePane();
 
         verticalPaned = new Paned(Orientation.VERTICAL);
+        horizontalPaned = new Paned(Orientation.HORIZONTAL);
+        
         editorContainer = new EditorContainer();
-        verticalPaned.pack1(editorContainer, true, true);
+        
+        horizontalPaned.pack1(editorContainer, true, true); 
+        horizontalPaned.pack2(sidePane, false, true);
+        horizontalPaned.setPosition(500);
+        
+        verticalPaned.pack1(horizontalPaned, true, true);
         verticalPaned.pack2(bottomPane, false, true);
         verticalPaned.setPosition(300);
 

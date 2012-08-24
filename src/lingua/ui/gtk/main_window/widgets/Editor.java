@@ -35,6 +35,8 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.nio.charset.Charset;
 import lingua.preferences.Preferences;
+import lingua.pretty_printer.GlossaPrettyPrinter;
+import lingua.pretty_printer.PrettyPrinter;
 import lingua.ui.gtk.main_window.MainWindow;
 import lingua.ui.gtk.main_window.dialogs.filters.GlossaDiermhneythsFileFilter;
 import lingua.ui.gtk.main_window.dialogs.io.DialogManager;
@@ -44,8 +46,7 @@ import lingua.ui.gtk.main_window.dialogs.io.SaveCodeDialog;
 import lingua.ui.gtk.main_window.menus.EditorPopupMenu;
 import lingua.utils.CharsetDetector;
 import lingua.utils.MiscUtils;
-import org.gnome.gdk.EventButton;
-import org.gnome.gdk.MouseButton;
+import org.gnome.gdk.*;
 import org.gnome.gtk.Menu;
 import org.gnome.gtk.TextBuffer;
 import org.gnome.gtk.Widget;
@@ -60,6 +61,7 @@ public class Editor extends SourceView implements BufferSaver{
 
     private static Editor instance = null;
     private final Menu popupMenu;
+    private PrettyPrinter prettyPrinter;
 
     public static Editor getInstance() {
         if (instance == null) {
@@ -71,6 +73,7 @@ public class Editor extends SourceView implements BufferSaver{
     private Editor() {
         super(new EditorBuffer());
         popupMenu = new EditorPopupMenu();
+        prettyPrinter = new GlossaPrettyPrinter();
         init();
     }
 
@@ -84,6 +87,21 @@ public class Editor extends SourceView implements BufferSaver{
             public boolean onButtonPressEvent(Widget widget, EventButton eb) {
                 if (eb.getButton().equals(MouseButton.RIGHT)) {
                     popupMenu.popup();
+                    return true;
+                }
+                return false;
+            }
+        });
+        
+        connect(new KeyReleaseEvent() {
+
+            public boolean onKeyReleaseEvent(Widget widget, EventKey ek) {
+                if(ek.getKeyval().equals(Keyval.F) && ek.getState().contains(ModifierType.SHIFT_MASK) && ek.getState().contains(ModifierType.CONTROL_MASK) ){
+                    EditorBuffer buf = getBuffer();
+                    if(buf!=null){
+                        String text = buf.getText();
+                        buf.setText(prettyPrinter.getPrettyText(text));
+                    }
                     return true;
                 }
                 return false;
@@ -147,7 +165,7 @@ public class Editor extends SourceView implements BufferSaver{
             BufferedReader reader = new BufferedReader(
                     new InputStreamReader(new FileInputStream(src),
                     c == null ? Charset.defaultCharset() : c));
-            String buffer = "";
+            String buffer;
             StringBuilder sb = new StringBuilder();
             while ((buffer = reader.readLine()) != null) {
                 sb.append(buffer);
@@ -172,8 +190,6 @@ public class Editor extends SourceView implements BufferSaver{
             if (modified) { // buffer has changes
                 if (DialogManager.handleModifiedBuffer(false, buf.getDocumentTitle(), this)) { // The user saved or chose not to
                     this.newBuffer();
-                } else { // The user cancelled the save dialog
-                    return;
                 }
             } else {
                 this.newBuffer();
@@ -238,7 +254,7 @@ public class Editor extends SourceView implements BufferSaver{
         if(MainWindow.getInstance().stopInterpreterAndContinue()){
              EditorBuffer buf = this.getBuffer();
             boolean modified = buf.getModified();
-            String filename = null;
+            String filename;
             if (modified) { // buffer has changes
                 if (DialogManager.handleModifiedBuffer(false, buf.getDocumentTitle(), this)) { // The user saved or chose not to
                     filename = DialogManager.showOpenDialog(OpenCodeDialog.getInstance());

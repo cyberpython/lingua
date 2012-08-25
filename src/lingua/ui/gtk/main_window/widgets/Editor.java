@@ -100,7 +100,9 @@ public class Editor extends SourceView implements BufferSaver{
                     EditorBuffer buf = getBuffer();
                     if(buf!=null){
                         String text = buf.getText();
+                        buf.beginUserAction();
                         buf.setText(prettyPrinter.getPrettyText(text));
+                        buf.endUserAction();
                     }
                     return true;
                 }

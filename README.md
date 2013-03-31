@@ -55,9 +55,9 @@ Lingua στα Λατινικά σημαίνει «γλώσσα». Πρόκειτ
 Πρώτα πρέπει να εγκαταστήσουμε το διερμηνευτή:
 
     cd ~
-    wget https://github.com/downloads/cyberpython/glossa-interpreter/glossa-interpreter-1.0.4.tar.gz
-    tar -xvf glossa-interpreter-1.0.4.tar.gz
-    cd glossa-interpreter-1.0.4
+    wget https://dl.dropbox.com/u/599926/releases/glossa-interpreter-1.0.5.tar.gz
+    tar -xvf glossa-interpreter-1.0.5.tar.gz
+    cd glossa-interpreter-1.0.5
     make
     sudo make install
 

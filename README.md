@@ -28,45 +28,29 @@ Lingua στα Λατινικά σημαίνει «γλώσσα». Πρόκειτ
 
 * OpenJDK JDK ≥6u10
 
-* Git
-
 * Ant
 
-* JUnit
+* Antlr3
 
-* libglib2.0-dev ≥ 2.28.0
+* JOptSimple
 
-* libgtk-3-dev ≥ 3.0.4
-
-* libcairo-gobject2 ≥ 1.10.0
-
-* libpango1.0-dev ≥ 1.28.0
-
-* libgtksourceview-3.0-dev ≥ 2.91.9
-
-* libnotify-dev ≥ 0.7.0
-
-* libunique-3.0-dev ≥ 3.0
-
-* libenchant-dev ≥ 1.4.2
-
-* librsvg2-dev ≥ 2.32.0
+* Java-Gnome (libjava-gnome-java & libjava-gnome-jni) ≥4.1.2
 
 Πρώτα πρέπει να εγκαταστήσουμε το διερμηνευτή:
 
     cd ~
-    wget https://dl.dropbox.com/u/599926/releases/glossa-interpreter-1.0.5.tar.gz
-    tar -xvf glossa-interpreter-1.0.5.tar.gz
-    cd glossa-interpreter-1.0.5
+    wget https://dl.dropboxusercontent.com/u/599926/releases/glossa-interpreter-1.0.7.tar.gz
+    tar -xvf glossa-interpreter-1.0.7.tar.gz
+    cd glossa-interpreter-1.0.7
     make
     sudo make install
 
 Έπειτα εγκαθιστούμε την εφαρμογή, εκτελώντας τις παρακάτω εντολές σε ένα τερματικό:
 
     cd ~
-    wget https://github.com/downloads/cyberpython/lingua/lingua-0.0.5.tar.gz
-    tar -xvf lingua-0.0.5.tar.gz
-    cd lingua-0.0.5
+    wget https://dl.dropboxusercontent.com/u/599926/releases/lingua-0.0.6.tar.gz
+    tar -xvf lingua-0.0.6.tar.gz
+    cd lingua-0.0.6
     make
     sudo make install
 

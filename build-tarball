@@ -36,26 +36,18 @@ fi
 
 mkdir -p binaries/$TARGET_DIR
 cp -R help binaries/$TARGET_DIR
-cp -R java-gnome binaries/$TARGET_DIR
-cp -R lib-docs binaries/$TARGET_DIR
 cp -R misc binaries/$TARGET_DIR
 cp -R nbproject binaries/$TARGET_DIR
 cp -R sourceview-files binaries/$TARGET_DIR
 cp -R src binaries/$TARGET_DIR
 cp AUTHORS binaries/$TARGET_DIR/AUTHORS
 cp build.xml binaries/$TARGET_DIR/build.xml
-cp build-all binaries/$TARGET_DIR/build-all
 cp build-tarball binaries/$TARGET_DIR/build-tarball
 cp COPYING binaries/$TARGET_DIR/COPYING
 cp Makefile binaries/$TARGET_DIR/Makefile
 cp manifest.mf binaries/$TARGET_DIR/manifest.mf
 cp manifest-libs binaries/$TARGET_DIR/manifest-libs
 cp README.md binaries/$TARGET_DIR/README.md
-
-if [ -d binaries/$TARGET_DIR/java-gnome/tmp ]
-then
-    rm -rf binaries/$TARGET_DIR/java-gnome/tmp
-fi
 
 cd binaries
 

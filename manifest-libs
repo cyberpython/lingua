@@ -1,1 +1,1 @@
-Class-Path: /usr/share/java/antlr3.jar /usr/share/java/joptsimple.jar /usr/share/java/glossa-interpreter.jar lib/gtk-4.1.jar
+Class-Path: /usr/share/java/antlr3.jar /usr/share/java/joptsimple.jar /usr/share/java/glossa-interpreter.jar /usr/share/java/gtk.jar

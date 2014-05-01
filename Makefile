@@ -23,7 +23,8 @@
 #*  THE SOFTWARE.
 #*
 all:
-	./build-all
+	ant clean jar
+	jar umf manifest-libs dist/lingua.jar
 	
 clean:
 	ant clean
@@ -46,10 +47,11 @@ install:
 	mkdir -p $(DESTDIR)/usr/share/applications
 	mkdir -p $(DESTDIR)/usr/share/doc/lingua
 	cp dist/lingua.jar $(DESTDIR)/usr/local/lingua/lingua.jar
+	chmod ugo+rx $(DESTDIR)/usr/local/lingua/lingua.jar
 	cp misc/source_printer.py $(DESTDIR)/usr/local/lingua/source_printer.py
-	cp -R dist/lib $(DESTDIR)/usr/local/lingua
 	cp -R help $(DESTDIR)/usr/share/doc/lingua
 	cp misc/lingua-icon.svg $(DESTDIR)/usr/share/icons/hicolor/scalable/apps/lingua.svg
+	chmod ugo+r $(DESTDIR)/usr/share/icons/hicolor/scalable/apps/lingua.svg
 	cp sourceview-files/glossa.lang $(DESTDIR)/usr/share/gtksourceview-3.0/language-specs/glossa.lang
 	cp sourceview-files/glossa.xml $(DESTDIR)/usr/share/gtksourceview-3.0/styles/glossa.xml
 	cp misc/lingua.desktop $(DESTDIR)/usr/share/applications/lingua.desktop

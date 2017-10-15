@@ -99,56 +99,39 @@
             
             <section>
                 <h2 id="installation">Εγκατάσταση</h2>
-                
+                <p>Για τη μεταγλώττιση της εφαρμογής χρειάζονται οι εξής εφαρμογές και βιβλιοθήκες:</p>
                 <ul>
-                    <li>
-                        <h3>Ubuntu</h3>
-                        
-                        <p>Για τους χρήστες Ubuntu υπάρχει αυτό το PPA: <a target="_blank" href="https://launchpad.net/~medigeek/+archive/lingua">https://launchpad.net/~medigeek/+archive/lingua</a></p>
-                        <p>Για εγκατάσταση δώστε σε τερματικό:</p>
-                        <pre>sudo add-apt-repository ppa:medigeek/lingua
-sudo apt-get update
-sudo apt-get install lingua</pre>
-                    </li>
-                    
-                    <li>
-                        <h3>Άλλες διανομές</h3>
-                        
-                        <p>Για τη μεταγλώττιση της εφαρμογής χρειάζονται οι εξής εφαρμογές και βιβλιοθήκες:</p>
-                        <ul>
-                            <li><p>OpenJDK <code>&ge;6u10</code></p></li>
-                            <li><p>Ant</p></li>
-                            <li><p>Antlr3</p></li>
-                            <li><p>JOptSimple</p></li>
-                            <li><p>Java-Gnome (libjava-gnome-java & libjava-gnome-jni) <code>&ge; 4.1.2</code></p></li>
-                        </ul>
-                        
-                        <p>Πρώτα πρέπει να εγκαταστήσουμε το διερμηνευτή:</p>
-                        
-                        <pre>cd ~
-wget https://dl.dropboxusercontent.com/u/599926/releases/glossa-interpreter-1.0.8.tar.gz
+                    <li><p>OpenJDK <code>&ge;6u10</code></p></li>
+                    <li><p>Ant</p></li>
+                    <li><p>Antlr3</p></li>
+                    <li><p>JOptSimple<code>&ge;4.5.3</code></p></li>
+                    <li><p>Java-Gnome (libjava-gnome-java & libjava-gnome-jni) <code>&ge; 4.1.2</code></p></li>
+                </ul>
+                
+                <p>Πρώτα πρέπει να εγκαταστήσουμε το διερμηνευτή:</p>
+                
+                <pre>cd ~
+wget https://github.com/cyberpython/glossa-interpreter/releases/download/v1.0.8/glossa-interpreter-1.0.8.tar.gz
 tar -xvf glossa-interpreter-1.0.8.tar.gz
 cd glossa-interpreter-1.0.8
 make
 sudo make install</pre>
-                        
-                        <p>Και εκτελούμε τις παρακάτω εντολές σε ένα τερματικό:</p>
-                        <pre>cd ~
-wget https://dl.dropboxusercontent.com/u/599926/releases/lingua-0.0.6.tar.gz
+                
+                <p>Και εκτελούμε τις παρακάτω εντολές σε ένα τερματικό:</p>
+                <pre>cd ~
+wget https://github.com/cyberpython/lingua/releases/download/v0.0.6/lingua-0.0.6.tar.gz
 tar -xvf lingua-0.0.6.tar.gz
 cd lingua-0.0.6
 make
 sudo make install</pre>
 
-                        <p>Τρέχουμε την εφαρμογή από το μενού <code>Εκπαίδευση -> Lingua</code> ή δίνοντας σε τερματικό:</p>
-                        
-                        <pre>lingua</pre>
-                        
-                        <p>Για απεγκατάσταση της εφαρμογής από το σύστημα δίνουμε:</p>
-                        
-                        <pre>sudo make uninstall</pre>
-                    </li>
-                </ul>
+                <p>Τρέχουμε την εφαρμογή από το μενού <code>Εκπαίδευση -> Lingua</code> ή δίνοντας σε τερματικό:</p>
+                
+                <pre>lingua</pre>
+                
+                <p>Για απεγκατάσταση της εφαρμογής από το σύστημα δίνουμε:</p>
+                
+                <pre>sudo make uninstall</pre>
             </section>
             
             <section>
